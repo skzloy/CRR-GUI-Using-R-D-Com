@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: NEWS R/Scilab (D)COM Server 3.0-1B5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="RDCOM.css">
+</head><body>
+
+
+<h2>NEWS R/Scilab (D)COM Server 3.0-1B5</h2>
+
+
+<h3>CHANGES in R/Scilab (D)COM Server 3.0</h3>
+
+<ul>
+<li>use package <code>rscproxy</code> instead of DLL <code>rproxy.dll</code> for
+connecting to <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+<li>use <code>sciproxy.dll</code> for connecting to Scilab 4.x or 5.x
+<li>RExcel distributed separately now
+<li>R/Scilab (D)COM Server is now distributed under a new license. See
+<a href="../SC_PUBLIC">../SC_PUBLIC</a> for more information.
+</ul>
+
+<h3>CHANGES in R(D)COM 2.50</h3>
+
+<ul>
+<li>Various smaller bugfixes.
+<li>Support for Scilab 4.1 in addition to <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+<li>RExcel: <font face="Courier New,Courier" color="#666666"><b>R</b></font> started from the RExcel menu 
+reads .RProfile from
+its own directory. This allows additional configuration options
+for R started from RExcel.
+<li>RExcel: GetArrayToVBA and PutArrayFromVBA allow to transfer data
+between VBA and <font face="Courier New,Courier" color="#666666"><b>R</b></font> without putting them on a worksheet.
+<li>RExcel: setting <font face="Courier New,Courier" color="#666666"><b>R</b></font>'s working on <font face="Courier New,Courier" color="#666666"><b>R</b></font> startup now respects
+if called from RExcel or called from outside RExcel.
+<li>RExcel configuration can be copied to tge clipboard
+from the dialog box.
+<li>RExcel: column names for data frames are coerced to
+valid variable names in <font face="Courier New,Courier" color="#666666"><b>R</b></font>.
+<li>RExcel: some more configuration options added.
+<li>RExcel: Excel slider demo shows how to use RExcelStart.RS
+</ul>
+
+<h3>CHANGES in R (D)COM 2.01</h3>
+
+<ul>
+<li>The installer now provides a new category <code>excelsamples</code>. This
+allows an installation of the (D)COM Server and RExcel with only the
+samples for RExcel.
+<li>Documentation enhancements: setup command line parameters and integration
+into 3rd party application setup.
+</ul>
+
+<h3>CHANGES in R (D)COM 2.00</h3>
+
+<ul>
+<li>R (D)COM 2.00 requires <font face="Courier New,Courier" color="#666666"><b>R</b></font> &gt;= 2.2.0.
+<li>Data transfer now allows to transfer arrays of <code>VT_BYREF</code> types.
+<li>Data transfer supports arrays of <code>VARIANT</code>s of mixed types, e.g.
+now you can transfer an array with a boolean (<code>VT_BOOL</code>), an
+integer (<code>VT_I4</code>) and a string (<code>VT_BSTR</code>) at once. This
+works for both directions (<code>SetSymbol()</code> and <code>GetSymbol()</code>).
+<li>Special values (e.g. <code>NA</code>, <code>NaN</code>) are now correctly transferred
+using R (D)COM 2.00. The encoding used is borrowed from Excel.
+<li>Basic support for transfer of COM objects into <font face="Courier New,Courier" color="#666666"><b>R</b></font> and from <font face="Courier New,Courier" color="#666666"><b>R</b></font> are provided.
+<code>VT_DISPATCH</code> is used. On the <font face="Courier New,Courier" color="#666666"><b>R</b></font> side, the package <code>rcom</code>
+(version &gt;= 1.2) is required
+<li>Fully compatible COM server is also provided in the package <code>rcom</code>
+which can also be found on CRAN. <code>rcom</code> leaves the <font face="Courier New,Courier" color="#666666"><b>R</b></font> GUI visible.
+<li>A (D)COM client library is found in the package <code>rcom</code>. This is e.g.
+useful to process "callbacks" to your own COM objects.
+<li><code>Rcommander</code> can now be run from R (D)COM applications.
+<li>A bug in the graphics device has been fixed. Now colored plots work
+as expected.
+<li>Installation of RExcel has changed. Uninstall works fine now.
+<li>RExcel transfers complex numbers and date and time data types
+between R and Excel.
+<li>RExcel has direct access to RCommander
+</ul>
+
+<h3>CHANGES in R (D)COM 1.36</h3>
+
+<ul>
+<li>Added RServerManagerAdmin
+<li>Fixed setup for sample sources (MFC client sample)
+<li>Prepared some start-up debugging traces
+<li>Works with the rcom library, allowing to have a command
+line window on the <font face="Courier New,Courier" color="#666666"><b>R</b></font> process communicating with Excel.
+<font face="Courier New,Courier" color="#666666"><b>R</b></font> server is a foreground process.
+<li>Support of <font face="Courier New,Courier" color="#666666"><b>R</b></font> processes running under control of RServerManager.
+<font face="Courier New,Courier" color="#666666"><b>R</b></font> server is attached to Excel from a server pool.
+Different instances of Excel (running on different
+machines) may access the same <font face="Courier New,Courier" color="#666666"><b>R</b></font> process with the same data.
+<li>Improved stability and better error handling
+(error und debugging messages now go into separate
+modeless window working simultaneously with Excel)
+<li>Instructions (in RExcel's help file) how to create a
+standalone RExcel application which hides <font face="Courier New,Courier" color="#666666"><b>R</b></font> almost
+completely from the user and uses Excel as the
+main interface to <font face="Courier New,Courier" color="#666666"><b>R</b></font>.
+</ul>
+
+<h3>CHANGES in 1.35</h3>
+
+<ul>
+<li>Due to very unfortunate circumstances many of the sources for the R COM
+server as of version 1.2 got lost. This includes the setup program, many
+samples and test code and some controls. These parts have been rewritten
+from scratch, but may not be 100% compatible with the previous versions.
+My apologies for any inconveniences caused by this fact.
+<li><code>RServerManager</code> has been added. This provides a repository for <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+COM servers. See the samples and the additional documentation
+<li>Partial rewrite of the code for <code>SetSymbol()</code> and <code>GetSymbol()</code>.
+Now arrays of <code>VARIANT</code>s are supported to some degree. This makes
+the COM server accessible to many scripting languages
+<li>Sample usage for JScript added
+<li>Sample for Pyhton added
+<li>Sample for VBScript added
+<li>Information about LabVIEW added
+<li>New tools library provided for Excel to remotely access COM server
+without the need for local installation
+<li>bug fixes and speed-up in StatConnectorClnt.StatConnectorGraphicsDevice
+<li>MFC sample added
+<li>RExcel now allows to retrieve expression in many places where
+previously only variables were allowed    
+<li>When it starts <font face="Courier New,Courier" color="#666666"><b>R</b></font>, RExcel searches for files <code>RExcelStart.R</code> in the directory where
+<code>RExcel.xla</code> lives and then in Excel's current directory and  
+executes (sources) both files in that order. 
+</ul>
+
+<h3>CHANGES in 1.2</h3>
+
+<ul>
+<li>Loading of rproxy.dll has changed now. Previously loading failed if
+an outdated <code>%R_HOME%</code> setting was present, now the loading follows
+this algorithm:
+</p>
+
+<ol>
+<li>if <code>%R_HOME%</code> is set, try to load <code>%R_HOME%\bin\rproxy.dll</code>
+<li>if the DLL has not been loaded, try to locate the current <font face="Courier New,Courier" color="#666666"><b>R</b></font> installation
+<li>by querying HKEY_LOCAL_MACHINE\Software<font face="Courier New,Courier" color="#666666"><b>R</b></font>-core<font face="Courier New,Courier" color="#666666"><b>R</b></font>\InstallPath, load
+from <code>bin\rproxy.dll</code> from the location this key points to
+<li>if the DLL has not been loaded now, try to load <code>rproxy.dll</code> from
+%PATH%
+<li>if this fails, return <code>SCN_E_LIBRARYNOTFOUND</code>.
+</p>
+<p>
+Every load failure is traced using <code>OutputDebugString()</code>. Use
+<code>dbgview.exe</code> to view this trace information. Get <code>dbgview.exe</code>
+from <a href="http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx">http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx</a>
+</ol>
+<li>Excel-Add In has been added to setup.
+<li>Sample for using <font face="Courier New,Courier" color="#666666"><b>R</b></font> with python.
+<li>RExcel addin changes:
+<ul>
+<li>New worksheet functions <code>RApplyC</code>, <code>RApplyA</code>, <code>RApplyAC</code>.
+So far, <code>RApply(function,args)</code>
+called a function and args were the values for the arguments
+taken from sheet ranges. This does not work for named arguments.
+The worksheet function <code>RApplyA(function,argstring,..)</code> uses 
+just one (Excel) argument which  has to be a string giving 
+all the arguments for the <font face="Courier New,Courier" color="#666666"><b>R</b></font> function call.
+<li>RApply can ony return scalars or matrices. If the function called
+returns an object, it cannot be put in the worksheet directly.
+Therefore, <code>RApplyC(function,component,args)</code> assumes that the function
+call returns an object and returns the component given by the second argument
+from this object.
+<code>RApplyC("cor.test","p.value", ....)</code> will return the p-value of the
+correlation test.
+<li><code>RApplyAC</code> combines the functionality of <code>RApplyA</code> and <code>RApplyC</code>.
+<li><code>RCall</code> is used to call a procedure with no return values
+(an important use is calling graphics procedures from the worksheet).
+<code>RCallA</code> uses the string argument mechanism describe for <code>RApplyA</code>.
+<code>RCall</code> and <code>RCallA</code> are part of Excel's recalculation mechanism,
+therefore graphs will be updated automatically when data is changed.
+<li><code>MakeArgs</code> turns a 2 column list or 2 row list of argument names 
+and argument expressions into a string suitable 
+for <code>RapplyA</code>, <code>RApplyAC</code>, or <code>RCallA</code>.
+</ul>
+</ul>
+
+<h3>CHANGES in 1.1</h3>
+
+<ul>
+<li>bugfix for transfer of boolean values.
+</ul>
+
+<h3>CHANGES in 1.0</h3>
+
+<ul>
+<li>COM (Active X) object for cathing console output programmatically (provides
+R console output in a string variable)
+<li>User-friendly setup program eliminating most common setup errors. Provides
+support for local and remote server installations and setups for development
+machines.
+</ul>
+
+<h3>CHANGES in 0.99</h3>
+
+<ul>
+<li>Active X control for graphics output
+</ul>
+
+<h3>CHANGES in 0.91</h3>
+
+<ul>
+<li>random crashes catched now. server still reports its state.
+<li>server can report correct interpreter (<font face="Courier New,Courier" color="#666666"><b>R</b></font>), connector (rproxy) and server
+information
+<li>Active X control used as output device for <font face="Courier New,Courier" color="#666666"><b>R</b></font> provided
+</ul>
+
+
+<hr><div align="center">[Package <a href="00Index.html">Index]</a></div>
+
+</body></html>

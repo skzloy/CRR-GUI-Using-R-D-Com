@@ -1,0 +1,55 @@
+/*******************************************************************************
+ *  StatConnectorSrv: COM server to access Connector interface SC_Proxy
+ *  Copyright (C) 1999--2008 Thomas Baier
+ *
+ *  This software is copyrighted. See file SC_PUBLIC for more information
+ *
+ *  ---------------------------------------------------------------------------
+ *
+ *  $Id: RDCOM.css,v 1.1 2004/08/17 09:25:53 baier Exp $
+ *
+ *  This file contains a style sheet for the R/Scilab (D)COM Server documentation.
+ *
+ *  This file is based on R.css.
+ *
+ ******************************************************************************/
+body,h1,h2,h3,h4,p,ul,ol,li,dl,dt,dd,div,td,th,address,blockquote { font-family:Arial,sans-serif; }
+body { color:black; background-color:white; }
+
+body,h1,h2,h3,h4,p,ul,ol,li,dl,dt,dd,div,td,th,address,blockquote { font-family:Arial,sans-serif; }
+
+h1 { font-size:26px; margin-bottom:18px; }
+
+h1.ph1 { font-size:21px; margin-bottom:18px; }
+
+h2 { font-size:21px; margin-bottom:18px; }
+
+h3 { font-size:16px; }
+
+h4 { font-size:13.4px; }
+
+p,ul,ol,li,dl,dt,dd,div,td,th,address,blockquote { font-size:13.4px; }
+
+li,dt { margin-top:3px; }
+
+/*pre { font-family:"Courier New",Courier,monospace; font-size:13.4px; color:#009900; background-color:#FFFFE0; border:10px solid #EEEEEE; padding:10px; white-space:pre; }*/
+
+td pre { border-style:none; padding:0; }
+
+code,kbd,tt { font-family:"Courier New",Courier,monospace; color:#009900; font-weight:bold; }
+
+var { font-style:normal; color:#0000C0; }
+
+blockquote,cite { font-style:italic; }
+
+a:link { color:#009900; font-weight:bold; text-decoration:underline; }
+
+a:visited { color:#009900; font-weight:bold; text-decoration:none;  }
+
+a:active { color:#000000; font-weight:bold; text-decoration:none; }
+
+a.an { text-decoration:none; }
+
+ins { color:#009900; font-weight:bold; text-decoration:none; }
+
+del { color:#990000; font-weight:bold; text-decoration:line-through; }

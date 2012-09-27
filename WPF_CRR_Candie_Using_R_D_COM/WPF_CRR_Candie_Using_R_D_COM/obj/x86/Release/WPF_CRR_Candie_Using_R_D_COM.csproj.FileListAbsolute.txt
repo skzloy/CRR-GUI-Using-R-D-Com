@@ -1,0 +1,32 @@
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\bin\Release\WPF_CRR_Candie_Using_R_D_COM.exe
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\bin\Release\WPF_CRR_Candie_Using_R_D_COM.pdb
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\Interop.StatConnectorCommonLib.dll
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\Interop.STATCONNECTORSRVLib.dll
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.csproj.ResolveComReference.cache
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\MainWindow.baml
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\MainWindow.g.cs
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\App.g.cs
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM_MarkupCompile.cache
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.g.resources
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.Properties.Resources.resources
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.exe
+D:\Projects\R GUI\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.pdb
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\Interop.StatConnectorCommonLib.dll
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\Interop.STATCONNECTORSRVLib.dll
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.csproj.ResolveComReference.cache
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.exe
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.pdb
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\bin\Release\WPF_CRR_Candie_Using_R_D_COM.exe
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\bin\Release\WPF_CRR_Candie_Using_R_D_COM.pdb
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\MainWindow.baml
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\MainWindow.g.cs
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\App.g.cs
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM_MarkupCompile.cache
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.g.resources
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\WPF_CRR_Candie_Using_R_D_COM.Properties.Resources.resources
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\skzloy\Documents\GitHub\CRR-GUI-Using-R-D-Com\WPF_CRR_Candie_Using_R_D_COM\WPF_CRR_Candie_Using_R_D_COM\obj\x86\Release\GenerateResource.write.1.tlog

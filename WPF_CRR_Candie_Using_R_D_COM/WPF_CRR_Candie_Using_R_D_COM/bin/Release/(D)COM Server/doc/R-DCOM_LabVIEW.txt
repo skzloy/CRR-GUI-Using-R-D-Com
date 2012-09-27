@@ -1,0 +1,39 @@
+This documentation was contributed by Paul A. Larsen
+(mailto:palarsen@bevo.che.wisc.edu). Many thanks!
+-------------------------------------------------------------------------------
+** Using the R-DCOM Server with LabVIEW:
+
+1.  Insert an "Automation Open" function on the block diagram
+(Functions Palette:  Communication  >> ActiveX >> Automation Open)
+
+2.  Using the wiring utility cursor, right click on the "Automation
+Refnum" input on the "Automation Open" function and go to "Select
+ActiveX Class >> Browse" to open the "Select Object from Type Library"
+dialog box.   
+
+3.  Select "StatConnectorSrv 1.1" from the "Type Library" drop-down
+menu.
+
+4.  Wire the "Automation Refnum" output on the "Automation Open"
+function to the "reference" input of an "Invoke Node" function.  Set
+the method to "Init."  Set the input to "Init" as "R".
+
+5.  Wire the "reference" output of the first "Invoke Node" function to
+the "reference" input of a second "Invoke Node" function.  Set the
+method to "Evaluate".  Create a string control as the input to
+"Evaluate".  Wire the output of "Evaluate" to the "Variant" input of a
+"Variant to Data" function.
+
+6.  Wire the "type" input of the "Variant to Data" function to a
+string control.  Wire the "data" output of the "Variant to Data"
+function to a string indicator. 
+
+7.  Wire the "reference" output of the second "Invoke Node" function
+to the "reference" input of a third "Invoke Node" function.  Set the
+method to "Close".  
+
+8.  Wire the "reference" output of the third "Invoke Node" function to
+the "Automation Refnum" input of an "Automation Close" function.
+
+9.  The resulting VI will evaluate any expression inserted in the
+"Evaluate" string input control.

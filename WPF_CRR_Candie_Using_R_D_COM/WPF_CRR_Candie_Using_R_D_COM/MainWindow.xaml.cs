@@ -28,8 +28,8 @@ namespace WPF_CRR_Candie_Using_R_D_COM
         public MainWindow()
         {
             InitializeComponent();
-            
-            Environment.SetEnvironmentVariable("PATH", @"C:\Program Files\R\R-2.11.1\bin\");
+            string exec_folder = System.IO.Directory.GetCurrentDirectory();
+            Environment.SetEnvironmentVariable("PATH", exec_folder + @"\R-2.11.1\bin\");
             //FOO2();
         }
 
@@ -165,6 +165,15 @@ namespace WPF_CRR_Candie_Using_R_D_COM
         private void btn_start_Click(object sender, RoutedEventArgs e)
         {
             FOO2();
+            //StartChecking();
+        }
+
+        private void StartChecking()
+        {
+            string program_name = @"R for Windows 2.11.1_is1";
+            bool is_r_installed = CheckStart.IsProgramInstalled(program_name, true);
+            if (!is_r_installed)
+                AddStringToLog("Please Install R-1.11.1");
         }
 
         private void btn_finish_Click(object sender, RoutedEventArgs e)

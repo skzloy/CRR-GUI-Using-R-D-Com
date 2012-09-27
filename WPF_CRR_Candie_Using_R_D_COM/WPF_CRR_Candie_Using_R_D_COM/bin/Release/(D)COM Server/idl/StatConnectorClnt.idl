@@ -1,0 +1,110 @@
+/*******************************************************************************
+*  StatConnectorClnt: COM server providing Active X controls for
+*                     StatConnectorSrv
+*  Copyright (C) 1999--2008 Thomas Baier
+*
+*  This software is distributed under the terms of the
+*
+*                  R/SCILAB (D)COM SERVER PUBLIC LICENSE
+*                       (Version 1, November 2, 2008)
+*
+********************************************************************************/
+// StatConnectorClnt.idl : IDL source for StatConnectorClnt.dll
+//
+// $Id: StatConnectorClnt.idl,v 1.1 2004/03/25 07:03:20 baier Exp $
+
+// This file will be processed by the MIDL tool to
+// produce the type library (StatConnectorClnt.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "statconn.idl";
+
+#include "olectl.h"
+
+//interface ISGFX;
+	
+/*
+	[
+		object,
+		uuid(18c8b664-81a2-11d3-9254-00e09812f727),
+		dual,
+		helpstring("IStatConnectorCharacterDevice Interface"),
+		pointer_default(unique)
+	]
+	interface IStatConnectorCharacterDevice : IDispatch
+	{
+		[id(1), helpstring("write")] HRESULT WriteString([in] BSTR bstrLine);
+		[id(2), helpstring("conditional write")] HRESULT WriteStringLevel([in] BSTR bstrLine,[in] LONG lLevel);
+		[id(3), helpstring("clear display")] HRESULT Clear();
+	};
+*/	
+
+	[
+		object,
+		uuid(324743B6-D8E1-49CD-B465-E76FB733B5E9),
+		dual,
+		helpstring("IStatConnectorGraphicsDeviceCtl Interface"),
+		pointer_default(unique)
+	]
+	interface IStatConnectorGraphicsDeviceCtl : IDispatch
+	{
+		[propput, id(DISPID_BACKCOLOR)]
+		HRESULT BackColor([in]OLE_COLOR clr);
+		[propget, id(DISPID_BACKCOLOR)]
+		HRESULT BackColor([out,retval]OLE_COLOR* pclr);
+		[propput, id(DISPID_BORDERCOLOR)]
+		HRESULT BorderColor([in]OLE_COLOR clr);
+		[propget, id(DISPID_BORDERCOLOR)]
+		HRESULT BorderColor([out, retval]OLE_COLOR* pclr);
+		[propput, id(DISPID_FILLCOLOR)]
+		HRESULT FillColor([in]OLE_COLOR clr);
+		[propget, id(DISPID_FILLCOLOR)]
+		HRESULT FillColor([out, retval]OLE_COLOR* pclr);
+		[propputref, id(DISPID_FONT)]
+		HRESULT Font([in]IFontDisp* pFont);
+		[propput, id(DISPID_FONT)]
+		HRESULT Font([in]IFontDisp* pFont);
+		[propget, id(DISPID_FONT)]
+		HRESULT Font([out, retval]IFontDisp** ppFont);
+		[propput, id(DISPID_FORECOLOR)]
+		HRESULT ForeColor([in]OLE_COLOR clr);
+		[propget, id(DISPID_FORECOLOR)]
+		HRESULT ForeColor([out,retval]OLE_COLOR* pclr);
+		[propput, id(DISPID_CAPTION)]
+		HRESULT Caption([in]BSTR strCaption);
+		[propget, id(DISPID_CAPTION)]
+		HRESULT Caption([out,retval]BSTR* pstrCaption);
+	  //		[id(1), helpstring("method GetGFX")] HRESULT GetGFX([out,retval] IDispatch** ppGfx);
+		[id(1), helpstring("method GetGFX")] HRESULT GetGFX([out,retval] ISGFX** ppGfx);
+	};
+
+[
+	uuid(18c8b666-81a2-11d3-9254-00e09812f727),
+	version(1.0),
+	helpstring("StatConnectorClnt 1.0 Type Library")
+]
+library STATCONNECTORCLNTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("../Common/StatConnLib.tlb");
+
+	[
+		uuid(18c8b667-81a2-11d3-9254-00e09812f727),
+		helpstring("StatConnectorCharacterDevice Class")
+	]
+	coclass StatConnectorCharacterDevice
+	{
+		[default] interface IStatConnectorCharacterDevice;
+	};
+	[
+		uuid(BB285EAE-A0D3-4CA5-B24F-A5B8277153AC),
+		helpstring("StatConnectorGraphicsDevice Class")
+	]
+	coclass StatConnectorGraphicsDevice
+	{
+		[default] interface IStatConnectorGraphicsDeviceCtl;
+		interface ISGFX;
+	};
+};

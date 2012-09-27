@@ -1,0 +1,94 @@
+/*******************************************************************************
+*  StatConnectorSrv: COM server to access Connector interface SC_Proxy
+*  Copyright (C) 1999--2008 Thomas Baier
+*
+*  This software is distributed under the terms of the
+*
+*                  R/SCILAB (D)COM SERVER PUBLIC LICENSE
+*                       (Version 1, November 2, 2008)
+*
+********************************************************************************/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (StatConnectorSrv.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "../Common/statconn.idl";
+
+typedef enum
+{
+  itName,
+  itDescription,
+  itCopyright,
+  itLicense,
+  itMinorVersion,
+  itMajorVersion
+} InformationType;
+
+	[
+		object,
+		uuid(18c8b660-81a2-11d3-9254-00e09812f727),
+		dual,
+		helpstring("IStatConnector Interface"),
+		pointer_default(unique)
+	]
+	interface IStatConnector : IDispatch
+	{
+		// starting and stopping the interpreter
+		[id(1), helpstring("initialize the object for a specified connector")] HRESULT Init([in] BSTR bstrConnectorName);
+		[id(2), helpstring("method Close")] HRESULT Close();
+
+	    // retrieving information about the current server back-end
+		[id(3), helpstring("return information about types supported by this server")] HRESULT GetSupportedTypes([out] LONG* pulTypeMask);
+
+		// setting and retrieving symbol data
+		[id(4), helpstring("method GetSymbol")] HRESULT GetSymbol([in] BSTR bstrSymbolName,[out,retval] VARIANT* pvData);
+		[id(5), helpstring("method SetSymbol")] HRESULT SetSymbol([in] BSTR bstrSymbolName,[in] VARIANT vData);
+
+		// evaluating an expression in the interpreter
+		[id(6), helpstring("method Evaluate")] HRESULT Evaluate([in] BSTR bstrExpression,[out,retval] VARIANT* pvData);
+		[id(7), helpstring("method EvaluateNoReturn")] HRESULT EvaluateNoReturn([in] BSTR bstrExpression);
+
+		// interpreter custom error handling
+		[id(8), helpstring("method GetErrorId")] HRESULT GetErrorId([out,retval] LONG* pulErrorId);
+		[id(9), helpstring("method GetErrorText")] HRESULT GetErrorText([out,retval] BSTR* pbstrErrorText);
+
+		// route the interpreter's graphics output to a cliend window
+		[id(10), helpstring("method AddGraphicsDevice")] HRESULT AddGraphicsDevice([in] BSTR bstrName, [in] ISGFX /*IStatConnectorGraphicsDevice*/* pDevice);
+		[id(11), helpstring("method RemoveGraphicsDevice")] HRESULT RemoveGraphicsDevice([in] BSTR bstrName);
+
+		// client-provided user interface agent (e.g. for message boxes etc.)
+		[id(12), helpstring("method SetUserInterfaceAgent")] HRESULT SetUserInterfaceAgent([in] IStatConnectorUIAgent* pUIAgent);
+
+		// client-provided character device for standard character output, error output and tracing: can be set before Init()
+		[id(13), helpstring("method SetCharacterOutputDevice")] HRESULT SetCharacterOutputDevice([in] IStatConnectorCharacterDevice* pCharDevice);
+		[id(14), helpstring("method SetErrorDevice")] HRESULT SetErrorDevice([in] IStatConnectorCharacterDevice* pCharDevice);
+		[id(15), helpstring("method SetTracingDevice")] HRESULT SetTracingDevice([in] IStatConnectorCharacterDevice* pCharDevice);
+
+		// retrieve information about the server (this interface), the connector and the interpreter
+		[id(16), helpstring("method GetServerInformation")] HRESULT GetServerInformation([in] InformationType lInformationType,[out,retval] BSTR* pbstrInfo);
+		[id(17), helpstring("method GetConnectorInformation")] HRESULT GetConnectorInformation([in] InformationType lInformationType,[out,retval] BSTR* pbstrInfo);
+		[id(18), helpstring("method GetInterpreterInformation")] HRESULT GetInterpreterInformation([in] InformationType lInformationType,[out,retval] BSTR* pbstrInfo);
+	};
+
+[
+	uuid(18c8b661-81a2-11d3-9254-00e09812f727),
+	version(1.1),
+	helpstring("StatConnectorSrv 1.1 Type Library")
+]
+library STATCONNECTORSRVLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("../Common/StatConnLib.tlb");
+
+	[
+		uuid(18c8b662-81a2-11d3-9254-00e09812f727),
+		helpstring("StatConnector Class")
+	]
+	coclass StatConnector
+	{
+		[default] interface IStatConnector;
+	};
+};

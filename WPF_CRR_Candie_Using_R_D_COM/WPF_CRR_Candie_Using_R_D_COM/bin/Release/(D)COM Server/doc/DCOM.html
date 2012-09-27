@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Using the R/Scilab (D)COM Server 3.0-1B5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="RDCOM.css">
+</head><body>
+
+
+<h2>Using the R/Scilab (D)COM Server 3.0-1B5</h2>
+
+
+<h3>Troubleshooting</h3>
+
+<p>
+If anything goes wrong when calling <code>.Init()</code> of the COM object for the
+first time, retrieve error information using <code>.GetErrorText()</code>:
+</p>
+
+<dl>
+<dt>"installation problem: unable to load connector"</dt><dd><font face="Courier New,Courier" color="#666666"><b>R</b></font> proxy library could not be loaded. The cause of this common failure
+can be:
+</p>
+
+<ul>
+<li>the environment variable <code>%R_HOME%</code> points to a directory
+where <font face="Courier New,Courier" color="#666666"><b>R</b></font> is not installed <EM>and</EM>
+<li>the registry key corresponding to your <font face="Courier New,Courier" color="#666666"><b>R</b></font> installation does not
+point to the installation folder of <font face="Courier New,Courier" color="#666666"><b>R</b></font> <EM>and</EM>
+<li><code>rproxy.dll</code> and <code>R.dll</code> cannot be found in the
+<code>%PATH%</code>
+</ul>
+
+<p>
+In case you have downloaded precompiled binaries from CRAN and installed
+them, something went wrong there. Please try to reinstall <font face="Courier New,Courier" color="#666666"><b>R</b></font> using the
+setup program. Download "dbgview" (see section "Resources") to find out
+what's going wrong.
+</p>
+<p>
+If you have compiled <font face="Courier New,Courier" color="#666666"><b>R</b></font> yourself, check
+<code>%R_HOME%\bin\rproxy.dll</code> and the registry key
+<code>HKEY_LOCAL_MACHINE\Software\R-core\R\InstallPath</code> if this
+one points to your <font face="Courier New,Courier" color="#666666"><b>R</b></font> installation folder.</dd>
+<dt>"installation problem: invalid connector library"</dt><dd>possibly damaged <font face="Courier New,Courier" color="#666666"><b>R</b></font> proxy library. This version of the COM server
+requires <font face="Courier New,Courier" color="#666666"><b>R</b></font> &gt;= 2.2.</dd>
+<dt>"installation problem: interpreter interface version mismatch"</dt><dd>wrong version of <font face="Courier New,Courier" color="#666666"><b>R</b></font> proxy library. This version of the COM server
+requires <font face="Courier New,Courier" color="#666666"><b>R</b></font> &gt;= 2.2.</dd>
+<dt>"installation problem: interpreter version mismatch"</dt><dd>wrong version of <font face="Courier New,Courier" color="#666666"><b>R</b></font>. This version of the COM server requires <font face="Courier New,Courier" color="#666666"><b>R</b></font> &gt;= 2.2.</dd>
+</dl>
+
+<p>
+If a message box shows up on your call to .Init(), which tells you that the
+base library could not be found, you probably should set <code>R_HOME</code> to
+your installation folder. This should rarely be necessary.
+</p>
+<p>
+If you cannot solve the installation problem by yourself, please try to
+find help on the <font face="Courier New,Courier" color="#666666"><b>R</b></font> COM mailing list (see "Resources"). Subscribing to this
+list is recommended if you want to use/are using the <font face="Courier New,Courier" color="#666666"><b>R</b></font> COM server (or any
+other part of <font face="Courier New,Courier" color="#666666"><b>R</b></font>'s COM connectivity modules).
+</p>
+<p>
+All functions will return an error code corresponding to the texts
+shown above. This error code is the return value of the functions when
+called e.g. from C or C++ or can be retrieved by checking
+<code>Err.Number</code> in VB or VBA. The following table will list the
+error codes (defines for C/C++ and numbers)
+</p>
+
+<table summary="Rd table">
+<tr>
+  <td align="left"><B>Define</B>            </td>  <td align="center"> <B>Decimal</B> </td>  <td align="center"> <B>Hexadecimal</B> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDARG</code>         </td>  <td align="center"> <code>-2147221503</code> </td>  <td align="center"> <code>0x80040001</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDFORMAT</code>      </td>  <td align="center"> <code>-2147221502</code> </td>  <td align="center"> <code>0x80040002</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_NOTIMPL</code>            </td>  <td align="center"> <code>-2147221501</code> </td>  <td align="center"> <code>0x80040003</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_UNKNOWN</code>            </td>  <td align="center"> <code>-2147221500</code> </td>  <td align="center"> <code>0x80040004</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INITIALIZED</code>        </td>  <td align="center"> <code>-2147221499</code> </td>  <td align="center"> <code>0x80040005</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_NOTINITIALIZED</code>     </td>  <td align="center"> <code>-2147221498</code> </td>  <td align="center"> <code>0x80040006</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDSYMBOL</code>      </td>  <td align="center"> <code>-2147221497</code> </td>  <td align="center"> <code>0x80040007</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_PARSE_INVALID</code>      </td>  <td align="center"> <code>-2147221496</code> </td>  <td align="center"> <code>0x80040008</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_PARSE_INCOMPLETE</code>   </td>  <td align="center"> <code>-2147221495</code> </td>  <td align="center"> <code>0x80040009</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_UNSUPPORTEDTYPE</code>    </td>  <td align="center"> <code>-2147221494</code> </td>  <td align="center"> <code>0x8004000A</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_EVALUATE_STOP</code>      </td>  <td align="center"> <code>-2147221493</code> </td>  <td align="center"> <code>0x8004000B</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDINTERFACEVERSION</code>   </td>  <td align="center"> <code>-2147221488</code> </td>  <td align="center"> <code>0x80040010</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDINTERPRETERVERSION</code> </td>  <td align="center"> <code>-2147221487</code> </td>  <td align="center"> <code>0x80040011</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INTERFACENOTFOUND</code>        </td>  <td align="center"> <code>-2147221486</code> </td>  <td align="center"> <code>0x80040012</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_LIBRARYNOTFOUND</code>          </td>  <td align="center"> <code>-2147221485</code> </td>  <td align="center"> <code>0x80040013</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDLIBRARY</code>           </td>  <td align="center"> <code>-2147221484</code> </td>  <td align="center"> <code>0x80040014</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INITIALIZATIONFAILED</code>     </td>  <td align="center"> <code>-2147221483</code> </td>  <td align="center"> <code>0x80040015</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDCONNECTORNAME</code>     </td>  <td align="center"> <code>-2147221482</code> </td>  <td align="center"> <code>0x80040016</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_INVALIDINTERPRETERSTATE</code>  </td>  <td align="center"> <code>-2147221481</code> </td>  <td align="center"> <code>0x80040017</code> </td>
+</tr>
+<tr>
+  <td align="left"> <code>SCN_E_FATALBACKEND</code>       </td>  <td align="center"> <code>-2147221472</code> </td>  <td align="center"> <code>0x80040020</code> </td>
+</tr>
+</table>
+
+
+<h3>Using the COM server (Example code in Visual Basic)</h3>
+
+<ol>
+<li>get a server object
+</p>
+<p>
+<code>        dim x as StatConnector</code><br>
+<code>        set x = new StatConnector</code>
+</p>
+<p>
+and install an error handler
+</p>
+<p>
+<code>        on error goto error_handler</code>
+<li>fire up <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+</p>
+<p>
+<code>        x.Init ("R")</code>
+<li>use <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+</p>
+<p>
+<code>        x.SetSymbol ("symname",value)</code>
+</p>
+<p>
+or
+</p>
+<p>
+<code>        y = x.GetSymbol ("symname")</code>
+</p>
+<p>
+or
+</p>
+<p>
+<code>        y = x.Evaluate ("expression")</code>
+</p>
+<p>
+or
+</p>
+<p>
+<code>        x.EvaluateNoReturn ("expression")</code>
+<li>shut down <font face="Courier New,Courier" color="#666666"><b>R</b></font>
+</p>
+<p>
+<code>        x.Close</code>
+<li>error handler
+</p>
+<p>
+<code>    error_handler:</code><br>
+<code>      MsgBox x.GetErrorText,"R Server Error"</code>
+</p>
+<p>
+You can retrieve Information about the COM Server by calling
+<code>x.GetServerInformation</code> passing the requested information identifier
+(see enum <code>InformationType</code> in <code>StatConnectorSrv.idl</code>). Get
+information about the proxy dll calling <code>x.GetConnectorInformation</code> or
+the <font face="Courier New,Courier" color="#666666"><b>R</b></font> interpreter itself with <code>x.GetInterpreterInformation</code>.
+</ol>
+
+<h3>Using the COM server (Example code in Python)</h3>
+
+<p>
+To use COM with Python, the Python for Windows extensions (available
+from <a href="http://starship.python.net/crew/mhammond/">http://starship.python.net/crew/mhammond/</a>) have to be
+installed.
+</p>
+<p>
+Thanks to Dominic Barraclough
+(<a href="mailto:Dominic_Barraclough@urmc.rochester.edu">mailto:Dominic_Barraclough@urmc.rochester.edu</a>) for the following piece
+of code:
+</p>
+<p>
+After firing up the python interpreter, if one enters the following we can see
+that -python can talk to <font face="Courier New,Courier" color="#666666"><b>R</b></font> and get stuff back!
+</p>
+<p>
+<code>&gt;&gt;&gt; from win32com.client import Dispatch</code><br>
+<code>&gt;&gt;&gt; sc=Dispatch("StatConnectorSrv.StatConnector")</code><br>
+<code>&gt;&gt;&gt; sc.Init("R")</code><br>
+<code>&gt;&gt;&gt; print(sc.Evaluate("2+2")</code>)<br>
+<code>4.0 # COMMENT- R can do arithmetic and can tell python about it!</code><br>
+<code>&gt;&gt;&gt;</code>
+</p>
+
+
+<h3>Using the COM server (Example for APL)</h3>
+
+<p>
+This section was contributed by Grant Kilvington
+(<a href="mailto:gkilvington@edsellkilvington.com.au">mailto:gkilvington@edsellkilvington.com.au</a>):
+</p>
+<pre>I am using R(D)Com with APL.  I hope the following may be helpful.  The
+example I am using is taken from the book "Data Analysis and Graphics using
+R, An Example-based Approach" by John Maindonald and John Braun.
+
+First I load an APL workspace which has some functions for communicating
+with R(D)COM.  Because you will have difficulty with the APL font we use, I
+will describe the functions used - I think the approach would be the same in
+all languages.
+
+Then I initialise R by running Rstart.  This creates an instance of
+'StatConnectorSrv.StatConnector' and then I apply the method 'Xinit' to it.
+R is now running as a server.
+
+Next I load the library "DAAG" by executing RExec 'library(DAAG)'.
+
+RExec is a function which uses 'EvaluateNoReturn' exp (when I supply no left
+argument) or 'Evaluate' exp (when I do supply a left argument).  I could
+have had two separate functions depending on whether or not I want a result
+returned to my APL session.
+
+Now I load the data set "roller" by running the command RExec
+'data(roller)'.  I can see that the data is in the R Server by executing 1
+RExec 'ls()' (Note the &lt;dummy&gt; left argument) and this returns "roller" to
+my APL session.
+
+To see the values in APL I run weight {is assigned} 1 RExec
+'as.vector(roller$weight)' and if I examine weight (a variable now in my APL
+session) I see the values:
+
+1.9 3.1 3.3 4.8 5.3 6.1 6.4 7.6 9.8 12.4
+
+Note the phrase {is assigned} refers to a left pointing arrow which is an
+APL symbol.  From now on I will simple use the &lt;- construct used in R.
+
+Similarly depression &lt;- 1 RExec 'as.vector(roller$depression)' creates
+depression for me with the values:
+
+2 1 5 5 20 20 23 10 30 25
+
+Now we use R to do a simple regression of depression against weight:
+
+RExec 'roller.lm &lt;- lm(depression ~ weight, data=roller)'
+
+1 RExec 'as.vector(roller.lm$residuals)' returns to APL the values
+¯0.9796694804 ¯5.179764594 ¯1.71311378 ¯5.713232672 7.953394365 5.819997622
+8.019973844 ¯8.18012127 5.953037689 ¯5.980501724
+and 
+1 RExec 'as.vector(roller.lm$coefficients)' returns 
+¯2.087147783 2.666745928
+
+Sorry about the "too much" precision.  Note also that in APL the high minus
+is attached to the number: the - sign is an operator (negate).
+
+Note that I can also retrieve matrix results:
+
+      {transpose} 1 RExec 'as.matrix(roller)'
+  1.9  2
+  3.1  1
+  3.3  5
+  4.8  5
+  5.3 20
+  6.1 20
+  6.4 23
+  7.6 10
+  9.8 30
+ 12.4 25
+
+I can also create R objects and then retrieve them into APL:
+
+RExec 'dframe&lt;-data.frame(roller,fitted.value=predict(roller.lm),
+residual=resid(roller.lm))'
+
+      {transpose} 1 RExec 'as.matrix(dframe)'
+  1.9  2  2.97966948  ¯0.9796694804
+  3.1  1  6.179764594 ¯5.179764594
+  3.3  5  6.71311378  ¯1.71311378
+  4.8  5 10.71323267  ¯5.713232672
+  5.3 20 12.04660564   7.953394365
+  6.1 20 14.18000238   5.819997622
+  6.4 23 14.98002616   8.019973844
+  7.6 10 18.18012127  ¯8.18012127
+  9.8 30 24.04696231   5.953037689
+ 12.4 25 30.98050172  ¯5.980501724
+
+Or I can extract bits of the frame as vectors via
+
+      1 RExec 'as.vector(dframe$fitted.value)'
+2.97966948 6.179764594 6.71311378 10.71323267 12.04660564 14.18000238
+14.98002616 18.18012127
+      24.04696231 30.98050172
+      1 RExec 'as.vector(dframe$residual)'
+¯0.9796694804 ¯5.179764594 ¯1.71311378 ¯5.713232672 7.953394365 5.819997622
+8.019973844 ¯8.18012127
+      5.953037689 ¯5.980501724
+
+If I run the regression in APL (using my home grown function):
+
+t1 &lt;- 0.99 Regression ('depression' 'weight') (depression,[1.5]weight) 1 1 ©
+Plot
+Regression of depression on weight
+
+Source        Sums of Squares     df   Mean Squares
+===================================================
+Model                  657.97      1         657.97
+Residual               362.93      8          45.37
+---------------------------------------------------
+Total                 1020.90      9         113.43
+
+Number of Observations                       10
+F-statistic F(1,8)                           14.50
+p-value, Prob &gt; F                             0.0052
+Variation accounted for (R-square)           64.45
+               Adjusted (R-square)           60.01
+ Root MSE (residual std deviation)            6.74
+
+Variable         Estimate  StdError      t(8)  Prob&gt;|t|      Mean
+-----------------------------------------------------------------
+depression                                                  14.10
+-----------------------------------------------------------------
+weight            2.66675   0.70024     3.808    0.0052      6.07
+Intercept          ¯2.087     4.754    ¯0.439    0.6723
+
+Correlation Coefficient:  80.28
+
+The variable t1 contains a list of various results, for example t1[2] is:
+
+   2  1.9  2.97966948  ¯0.9796694804
+   1  3.1  6.179764594 ¯5.179764594
+   5  3.3  6.71311378  ¯1.71311378
+   5  4.8 10.71323267  ¯5.713232672
+  20  5.3 12.04660564   7.953394365
+  20  6.1 14.18000238   5.819997622
+  23  6.4 14.98002616   8.019973844
+  10  7.6 18.18012127  ¯8.18012127
+  30  9.8 24.04696231   5.953037689
+  25 12.4 30.98050172  ¯5.980501724
+
+which is the same as the frame created in R (with the first two columns
+reversed in order).
+
+I can also use the R plot routines via (for example):
+
+RExec 'plot(roller.lm, which=1)'
+
+which creates the graphic in the R Graphics device which I saved as a jpeg
+and attached as Rwhich1.jpeg.
+
+Similarly the normal Q-Q plot via:
+
+RExec 'plot(roller.lm, which=2)' (see Rwhich2.jpeg also attached).
+
+I used a low jpeg quality to keep the size down (50
+
+There is still lots of things I haven't worked out how to do yet.  In
+particular I haven't been able to work out how to get R to pop up a text
+window so that I can see the output from (say) summary(roller.lm).  Any
+clues.
+</pre>
+</p>
+
+
+<h3>Using the COM server (Example code in Perl)</h3>
+
+<p>
+This section was contributed by David Ovelleiro
+(<a href="mailto:dovelleiro@gmail.com">mailto:dovelleiro@gmail.com</a>):
+</p>
+<pre>I've been using the COM server to interface Perl applications with the R 
+package, and the results are excellent. In the page 
+"http://sunsite.univie.ac.at/rcom/"-&gt; usage, are some examples of using 
+the COM server with Visual Basic or Phyton. Maybe you can add an example 
+of Perl used together with DCOM and R, and maybe encourage the use of 
+your excellent solution in the Perl world.
+The use is so easy as:
+
+use strict;
+use Win32::OLE;
+my $R =Win32::OLE-&gt;new('StatConnectorSrv.StatConnector');
+my @cars;
+$R-&gt;Init('R');
+$R-&gt;EvaluateNoReturn ('plot(cars)');
+$R-&gt;EvaluateNoReturn ('vec&lt;-array(,dim=c(50,2))');
+$R-&gt;EvaluateNoReturn ('for(i in 1:50){vec[i,1]&lt;-cars[i,1]}');
+$R-&gt;EvaluateNoReturn ('for(i in 1:50){vec[i,2]&lt;-cars[i,2]}');
+@cars=$R-&gt;GetSymbol ('vec');
+my @cars_formatted=@{$cars[0]};
+for (@cars_formatted){
+   print ${$_}[0]."\t".${$_}[1]."\n";
+   }
+</pre>
+</p>
+
+
+<h3>RServerManager: A Short Introduction</h3>
+
+<p>
+<font face="Courier New,Courier" color="#666666"><b>R</b></font> (D)COM server provides a mechanism for standard applications like
+Microsoft Excel or custom applications written in any language serving
+as a COM client (e.g. Visual Basic, Perl) to use the <font face="Courier New,Courier" color="#666666"><b>R</b></font> as a powerful
+computational engine and renderer for graphics and text output.
+</p>
+<p>
+The current implementation of the <font face="Courier New,Courier" color="#666666"><b>R</b></font> server package puts every single
+<font face="Courier New,Courier" color="#666666"><b>R</b></font> interpreter used in a client application into a separate address
+space, allowing different code and data segments for multiple
+instances of the interpreter even in a single client instance.
+</p>
+<p>
+On the other hand, using COM/DCOM to expose <font face="Courier New,Courier" color="#666666"><b>R</b></font>'s functionality to
+client applications even makes it possible to share a single instance
+of an R interpreter between multiple client applications, both running
+on the same or even on different machines in the network. Sharing an
+interpreter instance also implies a shared data and code segment for
+<font face="Courier New,Courier" color="#666666"><b>R</b></font>.
+</p>
+<p>
+The implementation using COM takes care of synchronizing access to the
+interpreter, so only one client can use the server's functionality at
+the same time.
+</p>
+<p>
+Using these COM/DCOM features to share a single interpreter requires
+some level of "intelligence" in the client applications and
+cooperation between these. One client has to create the interpreter
+instance and all clients have to gain access to this object in some
+way, by using some kind of data exchange.
+</p>
+<p>
+This is the situation where a generic concept for managing and sharing
+interpreters is required: the <font face="Courier New,Courier" color="#666666"><b>R</b></font> Server Manager.
+</p>
+
+
+
+<hr><div align="center">[Package <a href="00Index.html">Index]</a></div>
+
+</body></html>
