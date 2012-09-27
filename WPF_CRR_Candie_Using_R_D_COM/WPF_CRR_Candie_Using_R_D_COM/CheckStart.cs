@@ -31,9 +31,14 @@ namespace WPF_CRR_Candie_Using_R_D_COM
                 {
                     using (RegistryKey sk = rk.OpenSubKey(skName))
                     {
-                        if (sk.GetValue("DisplayName") != null && sk.GetValue("DisplayName").ToString().ToUpper().Equals(p_program_name.ToUpper()))
+                        if (sk.GetValue("DisplayName") != null)
                         {
-                            result = true; //exists
+                            string display_name = sk.GetValue("DisplayName").ToString().ToLower();
+
+                            if (display_name.StartsWith(p_program_name.ToLower()))
+                            {
+                                result = true; //exists
+                            }
                         }
 
                     }

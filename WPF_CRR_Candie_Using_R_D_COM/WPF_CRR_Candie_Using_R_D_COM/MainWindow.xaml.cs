@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using StatConnectorCommonLib;
 using STATCONNECTORSRVLib;
 using System.IO;
+using AGD;
 
 namespace WPF_CRR_Candie_Using_R_D_COM
 {
@@ -23,13 +24,14 @@ namespace WPF_CRR_Candie_Using_R_D_COM
     public partial class MainWindow : Window
     {
         StatConnector rConn;
-        
-        
+        string path_to_r_project;
+
         public MainWindow()
         {
             InitializeComponent();
             string exec_folder = System.IO.Directory.GetCurrentDirectory();
-            Environment.SetEnvironmentVariable("PATH", exec_folder + @"\R-2.11.1\bin\");
+            path_to_r_project = @"C:\Program Files\R\R-2.11.1";
+            Environment.SetEnvironmentVariable("PATH", path_to_r_project + @"\bin");
             //FOO2();
         }
 
@@ -58,11 +60,12 @@ namespace WPF_CRR_Candie_Using_R_D_COM
 
         private void FOO2()
         {
-            
+
             try
             {
                 rConn = new StatConnector();
-                string current_directory = Directory.GetCurrentDirectory(); 
+                string current_directory = Directory.GetCurrentDirectory();
+
 
                 rConn.Init("R");
                 AddStringToLog("R Initialized");
@@ -75,12 +78,12 @@ namespace WPF_CRR_Candie_Using_R_D_COM
 
                 AddStringToLog("Library cmprsk loaded");
 
-                rConn.EvaluateNoReturn(@"source('C:\\Program Files\\R\\R-2.11.1\\bin\\dbf.r')");
+                rConn.SetSymbol("path_to_dbf_loader", current_directory.Replace(@"\", @"/") + @"/dbf.r");
+                rConn.SetSymbol("path_to_bd_file", current_directory.Replace(@"\", @"/") + @"/BD.DBF");
 
-                rConn.EvaluateNoReturn(@"mb <- read.dbf('D:\\Projects\\R GUI\\data\\BD.DBF')$dbf");
-                //rConn.SetSymbol("path_to_dbf_loader", current_directory.Replace(@"\", @"\") + @"\dbf.r");
-                //rConn.EvaluateNoReturn(@"source('path_to_dbf_loader')");
-                //rConn.EvaluateNoReturn(@"mb <- read.dbf('D:\\Projects\\R GUI\\data\\BD.DBF')$dbf");
+                rConn.EvaluateNoReturn(@"source(path_to_dbf_loader)");
+
+                rConn.EvaluateNoReturn(@"mb <- read.dbf(path_to_bd_file)$dbf");
 
 
                 rConn.EvaluateNoReturn(@"names(mb) <- tolower(names(mb))");
@@ -120,9 +123,9 @@ namespace WPF_CRR_Candie_Using_R_D_COM
                 rConn.EvaluateNoReturn(@" box  ()");
 
 
-                
 
-                
+
+
             }
             catch (Exception ex)
             {
@@ -135,6 +138,7 @@ namespace WPF_CRR_Candie_Using_R_D_COM
         {
             rtb_log.AppendText(p_string + "\n");
         }
+
         #region Streams
         public string MemoryStreamToString(MemoryStream ms)
         {
@@ -164,16 +168,54 @@ namespace WPF_CRR_Candie_Using_R_D_COM
 
         private void btn_start_Click(object sender, RoutedEventArgs e)
         {
-            FOO2();
-            //StartChecking();
+            if (StartChecking())
+                FOO2();
+
         }
 
-        private void StartChecking()
+        private bool StartChecking()
         {
-            string program_name = @"R for Windows 2.11.1_is1";
-            bool is_r_installed = CheckStart.IsProgramInstalled(program_name, true);
-            if (!is_r_installed)
-                AddStringToLog("Please Install R-1.11.1");
+            bool result = true;
+            string current_directory = Directory.GetCurrentDirectory();
+            string program_name = @"R for Windows 2.11.1";
+            if (!CheckStart.IsProgramInstalled(program_name, true))
+            {
+                result = InstallSilently(program_name, current_directory + @"\R-2.11.1-win32.exe");
+                if (result == false) return result;
+            }
+
+
+            program_name = @"R/Scilab (D)COM Server";
+            if (!CheckStart.IsProgramInstalled(program_name, true))
+            {
+                result = InstallSilently(program_name, current_directory + @"\R_Scilab_DCOM3.0-1B5.exe");
+                
+                if (result == false) return result;
+            }
+
+            AGD.Candies.FS.CopyDirectoryRecursive(current_directory + @"\cmprsk", path_to_r_project + @"\library\cmprsk", true);
+            AGD.Candies.FS.CopyDirectoryRecursive(current_directory + @"\rscproxy", path_to_r_project + @"\library\rscproxy", true);
+            
+            return result;
+        }
+
+        private bool InstallSilently(string program_name, string exec_path)
+        {
+            bool result = true;
+
+            AddStringToLog(program_name + " not installed. Silent Installation launched");
+
+            bool install_result = Installer.RunInstallMSI(exec_path);
+            if (install_result)
+                AddStringToLog("Installation succesfully completed");
+
+            else
+            {
+                AddStringToLog("Installation failed. Contact developer");
+                result = false;
+            }
+
+            return result;
         }
 
         private void btn_finish_Click(object sender, RoutedEventArgs e)
