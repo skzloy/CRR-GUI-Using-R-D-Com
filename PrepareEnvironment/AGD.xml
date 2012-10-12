@@ -1,0 +1,1558 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AGD</name>
+    </assembly>
+    <members>
+        <member name="T:AGD.Candies.SmartXmlNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetAttribute(System.String)">
+            <summary>
+            Gets the attribute value or throws exception if it is missing
+            </summary>
+            <param name="p_attribute_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetAttribute(System.String,System.String)">
+            <summary>
+            Gets the attribute value or returns default value if it is missing
+            </summary>
+            <param name="p_attribute_name"></param>
+            <param name="p_default_value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetInteger">
+            <summary>
+            Parses inner text and returns integer value or throws exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetString">
+            <summary>
+            Returns trimmed inner text
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetNonEmptyString">
+            <summary>
+            Returns trimmed inner text or throws excepption if the trimmed text is empty
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetChildNodes">
+            <summary>
+            Gets the list of the child nodes. Only 'XmlNodeType.Element' nodes are returned
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.GetChildNodes(System.String)">
+            <summary>
+            Gets the list of the child nodes. Only 'XmlNodeType.Element' nodes with the specified name are returned
+            </summary>
+            <param name="p_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.SelectNodeStrict(System.String)">
+            <summary>
+            Gets the specified node or throws exception if the node does not exist
+            </summary>
+            <param name="p_xpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SmartXmlNode.SelectSingleNode(System.String)">
+            <summary>
+            Gets the specified node or returns null if the node does not exist
+            </summary>
+            <param name="p_xpath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.HF.Information">
+            <summary>
+            Class for logging exceptions to server in XML files format (singlettom)
+            </summary>
+        </member>
+        <member name="M:AGD.HF.Information.AppendNodeWithText(System.Xml.XmlDocument,System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            Append new node with single inner text to root_node from params.
+            </summary>
+            <param name="doc">Current document</param>
+            <param name="root_node">Root node</param>
+            <param name="node_name">Current node name</param>
+            <param name="node_text">Node inner text</param>
+        </member>
+        <member name="M:AGD.HF.Information.AppendNodeWithAttribute(System.Xml.XmlDocument,System.Xml.XmlNode,System.String,System.String,System.String)">
+            <summary>
+            Append new node with single attribute to root_node from params.
+            </summary>
+            <param name="doc">Current document</param>
+            <param name="root_node">Root node</param>
+            <param name="node_name">Current node name</param>
+            <param name="node_attr_name">Attribate name</param>
+            <param name="node_attr_value">Attribute value</param>
+        </member>
+        <member name="M:AGD.HF.Information.AppendNodeAttribute(System.Xml.XmlDocument,System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            Append new attribute to node from params in end of the attributes list
+            </summary>
+            <param name="doc">Current document</param>
+            <param name="node">Current node</param>
+            <param name="attr_name">Attribute name</param>
+            <param name="attr_value">Attribute value</param>
+        </member>
+        <member name="M:AGD.HF.Information.Log(AGD.HF.ApplicationInfo,System.DateTime,AGD.HF.InfoDetailsLevel)">
+            <summary>
+            Safely posts information without exception to log
+            </summary>
+            <param name="p_app_info"></param>
+            <param name="dt_now"></param>
+            <param name="p_infoDetailsLevel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.Log(System.Exception,AGD.HF.ApplicationInfo,System.DateTime,AGD.HF.InfoDetailsLevel)">
+            <summary>
+            Safely posts information with exception to log (thread-safe method)
+            </summary>
+            <param name="p_exc">Runtime exception</param>
+            <param name="p_app_info">Additional ApplicationInfo</param>
+            <param name="dt_now">Current DateTime</param>
+            <returns>True on success, false on error</returns>
+        </member>
+        <member name="M:AGD.HF.Information.LogAsync(AGD.HF.ApplicationInfo,System.DateTime,AGD.HF.InfoDetailsLevel)">
+            <summary>
+            Safely posting information without exception to log asynchronously
+            </summary>
+            <param name="p_app_info"></param>
+            <param name="dt_now"></param>
+            <param name="p_infoDetailsLevel"></param>
+        </member>
+        <member name="M:AGD.HF.Information.LogAsync(System.Exception,AGD.HF.ApplicationInfo,System.DateTime,AGD.HF.InfoDetailsLevel)">
+            <summary>
+            Safely posting information with exception to log asynchronously
+            </summary>
+            <param name="p_exc"></param>
+            <param name="p_app_info"></param>
+            <param name="dt_now"></param>
+            <param name="p_infoDetailsLevel"></param>
+        </member>
+        <member name="M:AGD.HF.Information.Log_Unsafe(System.Exception,AGD.HF.ApplicationInfo,System.DateTime,AGD.HF.InfoDetailsLevel)">
+            <summary>
+            Unsafely posting information with exception to log
+            </summary>
+            <param name="p_exc"></param>
+            <param name="p_app_info"></param>
+            <param name="dt_now"></param>
+            <param name="p_infoDetailsLevel"></param>
+        </member>
+        <member name="M:AGD.HF.Information.TrySendOldLogFilesToServer">
+            <summary>
+            Method for trying send old files to server
+            if save on db process failed - starts trying upload files on server by netbios share
+            </summary>
+        </member>
+        <member name="M:AGD.HF.Information.SaveDocument_Unsafe(System.Xml.XmlDocument,System.DateTime)">
+            <summary>
+            Save doc on local machine, remote machine, remove files if success, etc.
+            </summary>
+            <param name="doc"></param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:AGD.HF.Information.SaveLogToLocalMachine(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Method save xml file to local machine (safe)
+            </summary>
+            <param name="doc">Document with log</param>
+            <param name="path">Filepath for log</param>
+        </member>
+        <member name="M:AGD.HF.Information.SaveLogToLocalMachine_Unsafe(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Method save xml file to local machine (unsafe)
+            </summary>
+            <param name="doc">Document with log</param>
+            <param name="path">Filepath for log</param>
+        </member>
+        <member name="M:AGD.HF.Information.CopyLogToDesktop(System.String,System.String)">
+            <summary>
+            Method for copy file to current user dekctop (safe)
+            </summary>
+            <param name="path"></param>
+            <param name="new_file_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.CopyLogToDesktop_Unsafe(System.String,System.String)">
+            <summary>
+            Method for copy file to current user dekctop (unsafe)
+            </summary>
+            <param name="path"></param>
+            <param name="new_file_name"></param>
+        </member>
+        <member name="M:AGD.HF.Information.UploadLogToServer(System.String,System.String)">
+            <summary>
+            Method for uploads file (by path in params) from local machine to remote server (safe)
+            </summary>
+            <param name="local_path">Local file path</param>
+            <param name="network_path">Network file path</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.UploadLogToServer_Unsafe(System.String,System.String)">
+            <summary>
+            Method for uploads file (by path in params) from local machine to remote server (unsafe)
+            </summary>
+            <param name="local_path">Local file path</param>
+            <param name="network_path">Network file path</param>
+        </member>
+        <member name="M:AGD.HF.Information.RemoveLogFromLocalMachine(System.String)">
+            <summary>
+            Method for remove file (by path in params) from local machine (safe)
+            </summary>
+            <param name="local_path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.RemoveLogFromLocalMachine_Unsafe(System.String)">
+            <summary>
+            Method for remove file (by path in params) from local machine (unsafe)
+            </summary>
+            <param name="local_path"></param>
+        </member>
+        <member name="M:AGD.HF.Information.SaveLogToDB(System.Xml.XmlDocument)">
+            <summary>
+            method save xml file to DB (safe)
+            </summary>
+            <param name="doc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.SaveLogToDB_Unsafe(System.Xml.XmlDocument)">
+            <summary>
+            Method save xml file to DB (unsafe)
+            </summary>
+            <param name="doc"></param>
+        </member>
+        <member name="M:AGD.HF.Information.GetAllServers">
+            <summary>
+            Gets Info about all servers
+            </summary>
+            <returns>Dictionary (key = server_name, val = server_path)</returns>
+        </member>
+        <member name="M:AGD.HF.Information.IsDrvReady(System.String)">
+            <summary>
+            Get bool value for driver's availability
+            </summary>
+            <param name="drv_name">Drive name</param>
+            <returns>true if drive is ready</returns>
+        </member>
+        <member name="M:AGD.HF.Information.GetInfoFromManagementObject_Safe(System.String,System.Management.ManagementObject)">
+            <summary>
+            Method gets property value from ManagementObject,
+            if property isnt exists or any exception occurs - returns Empty string
+            </summary>
+            <param name="property">Property name</param>
+            <param name="management_object">ManagementObject for extracting property value</param>
+            <returns>Property value as string</returns>
+        </member>
+        <member name="M:AGD.HF.Information.AddStackTraceToException(System.Xml.XmlDocument,System.Xml.XmlNode,System.Exception)">
+            <summary>
+            If exception has StackTrace then ST will be added as a child to xml_node of the xml_doc. 
+            Else nothing will happen.
+            </summary>
+            <param name="p_ex"></param>
+            <param name="doc"></param>
+            <param name="node"></param>
+        </member>
+        <member name="M:AGD.HF.Information.GetMethodArgumentsAsString(System.Reflection.MethodBase)">
+            <summary>
+            Get Methods Arguments as comma separated string
+            </summary>
+            <param name="mb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.IsSystemNamespace(System.String)">
+            <summary>
+            If NameSpace is System returns true
+            </summary>
+            <param name="p_namespace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.TryUploadAllLogFilesToServer">
+            <summary>
+            Method try save all old log xml files to server (by NetBios share)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.TrySaveAllFilesToDB">
+            <summary>
+            Method try save all old xml files in DB (safe)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.HF.Information.RemoveFile(System.IO.FileInfo)">
+            <summary>
+            Method remove file and file copy (file with same filename and extension) from desktop
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="P:AGD.User.ID">
+            <summary>
+            read-only property
+            </summary>
+        </member>
+        <member name="P:AGD.User.Domain">
+            <summary>
+            read-only property
+            </summary>
+        </member>
+        <member name="P:AGD.User.AccessLevel">
+            <summary>
+            read-only property
+            </summary>
+        </member>
+        <member name="P:AGD.User.AdditionalOptionsList">
+            <summary>
+            read-only property
+            </summary>
+        </member>
+        <member name="T:AGD.Candies.Cagey">
+            <summary>
+            Cagey is a basic simple class, that is intended to be ancestor for all classes without instancing. It hides Equals, GetHashCode, ReferenceEquals and ToString methods of an object class.
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.Cagey.Equals(System.Object)">
+            <summary>
+            this is hidden method
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.Cagey.GetHashCode">
+            <summary>
+            this is hidden method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.Cagey.ToString">
+            <summary>
+            this is hidden method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.Cagey.ReferenceEquals(System.Object,System.Object)">
+            <summary>
+            this is hidden method
+            </summary>
+            <param name="objA"></param>
+            <param name="objB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.Simple.Triplet">
+            <summary>
+            Holds 3 string properties: F1, F2, F3. Notification if values changed.
+            </summary>
+        </member>
+        <member name="M:AGD.Simple.Triplet.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates instance, filled in with specified params. 
+            </summary>
+            <param name="p_f1">fill F1</param>
+            <param name="p_f2">fill F2</param>
+            <param name="p_f3">fill F3</param>
+        </member>
+        <member name="P:AGD.Simple.Triplet.F1">
+            <summary>
+            F1
+            </summary>
+        </member>
+        <member name="P:AGD.Simple.Triplet.F2">
+            <summary>
+            F2
+            </summary>
+        </member>
+        <member name="P:AGD.Simple.Triplet.F3">
+            <summary>
+            F3
+            </summary>
+        </member>
+        <member name="M:AGD.DynamicCoding.ParseSQL.Format(System.String)">
+            <summary>
+            returns formatted string from source sql string
+            </summary>
+            <param name="p_src_sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.DynamicCoding.ParseSQL.Initialize">
+            <summary>
+            Initialize Parser
+            </summary>
+        </member>
+        <member name="M:AGD.DynamicCoding.ParseSQL.ParseFromFile(System.String)">
+            <summary>
+            Reads text from file and parses its text as SQL query
+            </summary>
+            <param name="p_filename">Name of file with SQL query text</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.DynamicCoding.ParseSQL.ParseFromString(System.String)">
+            <summary>
+            Parses SQL query
+            </summary>
+            <param name="p_source_code">SQL query text</param>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.DynamicCoding.ParseSQL.ParseSQLResult">
+            <summary>
+            Class representing result of SQL query text parsing
+            </summary>
+        </member>
+        <member name="F:AGD.DynamicCoding.ParseSQL.ParseSQLResult.FormattedQuery">
+            <summary>
+            Contains formatted text of parsed SQL Query
+            </summary>
+        </member>
+        <member name="T:AGD.MSO.Excel">
+            <summary>
+            Handy Cand just to avoid linking to vb_excel_coop.cl_vb_excel_coop
+            </summary>
+        </member>
+        <member name="T:AGD.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AGD.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AGD.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:AGD.DevelopmentException">
+            <summary>
+            This type of exception can be thrown only in case of not followed constraint, agreed between developers. Also this can occure in case of improper use of control or object
+            </summary>
+        </member>
+        <member name="M:AGD.DevelopmentException.#ctor">
+            <summary>
+            Initializes a new instance of the AGD.DevelopmentException class
+            </summary>
+        </member>
+        <member name="M:AGD.DevelopmentException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the AGD.DevelopmentException class with specified message
+            </summary>
+            <param name="p_message"></param>
+        </member>
+        <member name="M:AGD.DevelopmentException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the AGD.DevelopmentException class with specified message and inner exception (System.Exception)
+            </summary>
+            <param name="p_message"></param>
+            <param name="p_inner_exception"></param>
+        </member>
+        <member name="M:AGD.Candies.Thread.Terminate">
+            <summary>
+            Terminates thread silently (without any exceptions)
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.Thread.Sleep(System.Int32)">
+            <summary>
+            same as System.Threading.Thread.Sleep
+            </summary>
+            <param name="p_sleep_period_ms"></param>
+        </member>
+        <member name="M:AGD.Candies.Thread.Join">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AGD.ZD">
+            <summary>
+            Class containing help functions
+            </summary>
+        </member>
+        <member name="M:AGD.ZD.GetCurrentUsername">
+            <summary>
+            Gets current user NT login in 'Domain\Username' format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetCurrentMachinename">
+            <summary>
+            Gets current computer machine name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetCurrentVersion">
+            <summary>
+            Gets executiong assembly version string like 1.01.012
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetAssemblyVersion(System.Reflection.Assembly)">
+            <summary>
+            Gets assembly version like 1.01.012 for assembly fro param
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetCurrentRevision">
+            <summary>
+            Gets executiong assembly revision
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetCurrentVersionRevision">
+            <summary>
+            Gets executiong assembly version string like 1.01.012.12345
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetNestedExceptionsFullMessage(System.Exception)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates all messages.
+            </summary>
+            <param name="p_er">Top level exception</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetNestedExceptionsFullMessage(System.Exception,System.Boolean)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates all messages.
+            </summary>
+            <param name="p_er">Top level exception</param>
+            <param name="p_show_exception_level">set up exception level number as a prefix for message</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetNestedExceptionsFullMessageWithStackTrace(System.Exception,System.Boolean,System.Boolean)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates all messages and stack trace data.
+            </summary>
+            <param name="p_er">Top level exception</param>
+            <param name="p_show_exception_level">set up exception level number as a prefix for message</param>
+            <param name="p_cleanup_microsoft_assemblies"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetExceptionDetailsBelowMessage(System.Exception)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates  all messages.
+            Resulting string starts with "Exception details below:\n".
+            Every error level message is tabulated (starts with "\n\t" symbol).
+            </summary>
+            <param name="err">Top level exception</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetCleanStackTrace">
+            <summary>
+            Returns stack trace, cleaned up out of Microsoft assemblies.
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetNestedExceptionsFullMessageWithStackTrace(System.Exception,System.Boolean)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates all messages and stack trace data.
+            </summary>
+            <param name="p_er">Top level exception</param>
+            <param name="p_cleanup_microsoft_assemblies"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetNestedExceptionsFullMessageWithStackTrace(System.Exception)">
+            <summary>
+            Goes through nested exceptions (InnerException property) and concatenates all messages and stack trace data.
+            </summary>
+            <param name="p_er">Top level exception</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGD.ZD.GetOpenedSqlConnection(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Returns opened SqlConnection or throws unhandled exception (SqlConnection.Open - unsafe call)
+            </summary>
+            <param name="p_con">SqlConnection</param>
+            <returns>SqlConnection</returns>
+        </member>
+        <member name="M:AGD.ZD.CreateNewConnection(AGD._cfg.DBListEnum,System.String,System.Int32)">
+            <summary>
+            Creates and opens new SqlConnection basing on _cfg database description
+            </summary>
+            <param name="p_db">Database to connect to</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.CreateNewConnection(AGD._cfg.DBListEnum,System.String)">
+            <summary>
+            Creates and opens new SqlConnection basing on _cfg database description
+            </summary>
+            <param name="p_db">Database to connect to</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.ConvertTo120(System.DateTime)">
+            <summary>
+            Converts datetime to string in SQL Server format #120: "yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="p_dt">Datetime to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.ParseMultString(System.String)">
+            <summary>
+            Parses a string containing integers and *
+            </summary>
+            <param name="p_str">String to Parse. E.g. 5*2000*60</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.StringHexToBytes(System.String)">
+            <summary>
+            Convertes string in hex format to byte array
+            </summary>
+            <param name="p_string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.BytesToStringHex(System.Byte[])">
+            <summary>
+            Convertes byte array to string in hex format 
+            </summary>
+            <param name="p_byte_array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.ReplaceParams(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Replaces parameters in string with their values
+            </summary>
+            <param name="str">String to process</param>
+            <param name="d_params">Dictionary with parameters as keys</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.CheckFileHash(System.String,System.String)">
+            <summary>
+            Checks if file mathes hash
+            </summary>
+            <param name="p_filename">Filename</param>
+            <param name="p_str_hash">Hash</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GenerateFileHash(System.String)">
+            <summary>
+            Generates hash for file
+            </summary>
+            <param name="p_filename">Filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.CopyItemToClipboard``1(``0)">
+            <summary>
+            Metod Copy item properties to ClipBoard.
+            For manage copied properties list use ClassCopyMode attribute for class
+            and PropertyCopyMode attribute for properties
+            if item == null - previous text in ClipBoard not remove
+            </summary>
+            <typeparam name="T">Generic item type</typeparam>
+            <param name="item">Properties donor item</param>
+        </member>
+        <member name="M:AGD.ZD.CopyItemsToClipboard(System.Collections.IEnumerable)">
+            <summary>
+            Metod Copy item properties to ClipBoard.
+            For manage copied properties list use ClassCopyMode attribute for class
+            and PropertyCopyMode attribute for properties
+            if count of items collection == 0 - previous text in ClipBoard not remove
+            Attention! items collection must contain only items same type
+            Properties header generates from first item in collection
+            </summary>
+            <param name="items">Collection of Items</param>
+        </member>
+        <member name="M:AGD.ZD.AppendItemPropertiesValues``1(``0,System.Collections.Generic.List{System.Reflection.PropertyInfo},System.Text.StringBuilder)">
+            <summary>
+            Method Append all properties for item class in params to result StringBuilder
+            </summary>
+            <typeparam name="T">Generic type</typeparam>
+            <param name="item">Properties donor</param>
+            <param name="lst_properties_info">List of ProperyInfo for current item</param>
+            <param name="result">Result StringBuilder</param>
+        </member>
+        <member name="M:AGD.ZD.AppendItemPropertiesHeader(System.Collections.Generic.List{System.Reflection.PropertyInfo},System.Text.StringBuilder)">
+            <summary>
+            Method Append all properties for item class in params to result StringBuilder
+            </summary>
+            <param name="lst_properties_info">List of ProperyInfo for current item</param>
+            <param name="result">Result StringBuilder</param>
+        </member>
+        <member name="M:AGD.ZD.GetPropertyInfoArray(System.Type)">
+            <summary>
+            Method gets sorted (by MetadataToken) propertyInfo list for type in params
+            Properties are selected according by attribute PropertyCopyMode settings for property
+            and attribute ClassCopyMode for type in params
+            </summary>
+            <param name="type">Properties donor Type</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.GetStringWithReplacedEscapeSymbols(System.String)">
+            <summary>
+            Method return string, where \r, \n, \t, \v "escape-symbols" replaced on text "\r", "\n", "\t", "\v"
+            </summary>
+            <param name="str_with_escape_symbols"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.NowForFileNameShort">
+            <summary>
+            yyyMMdd_HHmm
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.NowForFileNameLong">
+            <summary>
+            yyyMMdd_HHmmss
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.ZD.NowForFileNameSharp">
+            <summary>
+            yyyMMdd_HHmmss_ffff
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.ClassCopyMode">
+            <summary>
+            Attribute for manage Copy to Clipboard mode for class
+            </summary>
+        </member>
+        <member name="T:AGD.PropertyCopyMode">
+            <summary>
+            Attribute for manage Copy to Clipboard mode for property
+            </summary>
+        </member>
+        <member name="T:AGD.PropertyCopyModeEnum">
+            <summary>
+            Enum, for Aloowing or Excluding property, when copy to clipboard
+            </summary>
+        </member>
+        <member name="T:AGD.ClassCopyModeEnum">
+            <summary>
+            Enum for switch copy to clipboard mode for class properties
+            </summary>
+        </member>
+        <member name="M:AGD.MSO.AccessCandy.OpenDataBase(System.String)">
+            
+             <summary>
+             Открытие БД Access
+             </summary>
+             <param name="DataBasePath">Путь к mdb файлу</param>
+        </member>
+        <member name="M:AGD.MSO.AccessCandy.CloseDataBase">
+            
+            <summary>
+            Закрытие БД
+            </summary>
+        </member>
+        <member name="M:AGD.MSO.AccessCandy.PushDataToTable(System.String,System.String[])">
+            
+            <summary>
+            Добавление данных в таблицу
+            </summary>
+            <param name="TableName">Имя таблицы</param>
+            <param name="arrInputData">Добавляемые данные. Соответствует столбцам в таблице</param>
+        </member>
+        <member name="M:AGD.MSO.AccessCandy.PushDataToTable(System.String,System.Data.DataTable)">
+            
+            <summary>
+            Добавление данных в таблицу
+            </summary>
+            <param name="TableName">Имя таблицы</param>
+            <param name="dt_Source">Таблица с данными</param>
+        </member>
+        <member name="M:AGD.DynamicCoding.SqlQueryBuilder.BuildQuery">
+            <summary>
+            Builds an SQL query text according to the loaded parameters
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.DisposeDataTable">
+            <summary>
+            Disposes Created DataTable. Safe.
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.DisposeDataAdapter">
+            <summary>
+            Disposes created SQLDataAdapter. Safe.
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.#ctor(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Creates DA candy using SqlConnection and SQL string
+            </summary>
+            <param name="_sql">SQL string</param>
+            <param name="_con">SqlConnection</param>
+        </member>
+        <member name="M:AGD.Candies.DA.#ctor(System.String,System.Data.SqlClient.SqlConnection,System.Boolean)">
+            <summary>
+            Creates DA candy using SqlConnection and SQL string. TEST - does not disposes untill explicit permission.
+            </summary>
+            <param name="_sql">SQL string</param>
+            <param name="_con">SqlConnection</param>
+            <param name="p_fl_do_not_dispose_until_explicit_permission"></param>
+        </member>
+        <member name="M:AGD.Candies.DA.#ctor(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Creates DA candy using SqlCommand
+            </summary>
+            <param name="_SelectCommand">SqlCommand object</param>
+        </member>
+        <member name="M:AGD.Candies.DA.AllowDispose">
+            <summary>
+            Allows this object to be disposed.
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.Update(System.Data.DataTable)">
+            <summary>
+            Updates specified datatable on server.
+            </summary>
+            <param name="_dt">DataTable to be updated on server</param>
+        </member>
+        <member name="M:AGD.Candies.DA.FillToNewTable(System.Int32)">
+            <summary>
+            Creates new DataTable and fills it in
+            </summary>
+            <returns>new DataTable</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.FillToNewTable(System.Data.SqlClient.SqlTransaction,System.Int32)">
+            <summary>
+            Creates new DataTable and fills it in using transaction
+            </summary>
+            <param name="p_trans">opened transaction</param>
+            <returns>new DataTable</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.FillToNewTable">
+            <summary>
+            Creates new DataTable and fills it in
+            </summary>
+            <returns>new DataTable</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.FillToNewTable(System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Creates new DataTable and fills it in using transaction
+            </summary>
+            <param name="p_trans">opened transaction</param>
+            <returns>new DataTable</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.Fill(System.Data.DataTable)">
+            <summary>
+            Obsolete method. Use FillToNewTable() instead
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.Fill(System.Data.DataTable,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Obsolete method. Use FillToNewTable() instead
+            </summary>
+        </member>
+        <member name="F:AGD.Candies.DA.application_name">
+            <summary>
+            Application name used to create connections
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.SetApplicationName(System.String)">
+            <summary>
+            Sets application name used for creating connections
+            </summary>
+            <param name="p_app_name"></param>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Executes SQL Query with CommandTimeout = 0
+            </summary>
+            <param name="p_str_sql">SQL Query string</param>
+            <param name="p_con">Connection to database</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlConnection,System.Int32)">
+            <summary>
+            Executes SQL Query
+            </summary>
+            <param name="p_str_sql">SQL Query string</param>
+            <param name="p_con">Connection to database</param>
+            <param name="p_timeout">SQL Command Timeout in seconds</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Executes SQL Query with CommandTimeout = 0
+            </summary>
+            <param name="p_str_sql">SQL Query string</param>
+            <param name="p_con">Connection to database</param>
+            <param name="p_tran"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Int32)">
+            <summary>
+            Executes SQL Query
+            </summary>
+            <param name="p_str_sql">SQL Query string</param>
+            <param name="p_con">Connection to database</param>
+            <param name="p_tran">SQL Transaction</param>
+            /// <param name="p_timeout">SQL Command Timeout in seconds</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Executes SQL Query
+            </summary>
+            <param name="p_cmd">SqlCommand to execute</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(AGD._cfg.DBListEnum,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Executes SQL Query
+            </summary>
+            <param name="p_db">Database</param>
+            <param name="p_query_name">SQL Query name</param>
+            <param name="p_params">Dictionary with parameters. May be null.</param>
+            <returns>number of records affected</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.ExecuteNonQuery(AGD._cfg.DBListEnum,System.String)">
+            <summary>
+            Executes SQL Query
+            </summary>
+            <param name="p_db">Database</param>
+            <param name="p_str_sql">SQL Query string</param>
+            <returns>number of records affected</returns>
+        </member>
+        <member name="M:AGD.Candies.DA.GetRows(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Returns result of SQL command as enumeration of rows. Command is executed with infinite timeout
+            </summary>
+            <param name="p_str_sql"></param>
+            <param name="p_con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.GetRows(System.String,System.Data.SqlClient.SqlConnection,System.Int32)">
+            <summary>
+            Returns result of SQL command as enumeration of rows. Command is executed with specified timeout
+            </summary>
+            <param name="p_str_sql"></param>
+            <param name="p_con"></param>
+            <param name="p_timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.GetRows(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Returns result of SQL command as enumeration of rows
+            </summary>
+            <param name="p_cmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.DA.PrepareAdapterForUpload">
+            <summary>
+            Prepares DA for batch update and creates new SQL transaction
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DA.PrepareAdapterForUpload(System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Prepares DA for batch update using existing SQL transaction
+            </summary>
+            <param name="p_trans"></param>
+        </member>
+        <member name="M:AGD.Candies.DA.PrepareAndUpdate(System.Data.DataTable)">
+            <summary>
+            Prepares DA for batch update and executes update (creates new SQL transaction and commits it, automatically rollback if fail)
+            </summary>
+            <param name="p_dt"></param>
+        </member>
+        <member name="M:AGD.Candies.DA.PrepareAndUpdate(System.Data.DataTable,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Prepares DA for batch update and executes update using existing SQL transaction
+            </summary>
+            <param name="p_dt"></param>
+            <param name="p_trans"></param>
+        </member>
+        <member name="P:AGD.Candies.DA.Command">
+            <summary>
+            SQL statement, that was used in process of construction
+            </summary>
+        </member>
+        <member name="E:AGD.Candies.DA.OnBeginExecution">
+            <summary>
+            This event allows you to join to all available atm DA instances and receive from them event when they BEGIN retrieve data
+            </summary>
+        </member>
+        <member name="E:AGD.Candies.DA.OnFinishExecution">
+            <summary>
+            This event allows you to join to all available atm DA instances and receive from them event when they FINISH retrieve data
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.DAMessage.ToString">
+            <summary>
+            returns full information about DAMessage instance (All public props to one multiline string)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.Candies.FS">
+            <summary>
+            Class containing helpful functions for file system operations
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.FS.CopyDirectoryRecursive(System.String,System.String,System.Boolean)">
+            <summary>
+            Copies contents of source directory to target directory
+            </summary>
+            <param name="p_source_dir">Source directory path</param>
+            <param name="p_target_dir">Target directory path. Created if does not exist</param>
+            <param name="p_owerwrite">True to overwrite existing files in target directory</param>
+        </member>
+        <member name="M:AGD.Candies.FS.MoveDirectoryRecursive(System.String,System.String,System.Boolean)">
+            <summary>
+            Moves contents of source directory to target directory
+            </summary>
+            <param name="p_source_dir">Source directory path</param>
+            <param name="p_target_dir">Target directory path. Created if does not exist</param>
+            <param name="p_owerwrite">True to overwrite existing files in target directory</param>
+        </member>
+        <member name="M:AGD.Candies.FS.DeleteDirectoryRecursive(System.String,System.Boolean)">
+            <summary>
+            Deletes contents of directory recursively
+            </summary>
+            <param name="p_dir">Directory path to delete from</param>
+            <param name="p_self_delete">True to delete directory itself</param>
+        </member>
+        <member name="M:AGD.Candies.FS.DeleteDirectoryRecursive(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Deletes contents of directory recursively
+            </summary>
+            <param name="p_di">Directoryh to delete from</param>
+            <param name="p_self_delete">True to delete directory itself</param>
+        </member>
+        <member name="M:AGD.Candies.FS.CopyDirectoryRecursive(System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Copies contents of source directory to target directory
+            </summary>
+            <param name="p_di_source">Source directory</param>
+            <param name="p_di_target">Target directory</param>
+            <param name="p_owerwrite">True to overwrite existing files in target directory</param>
+        </member>
+        <member name="M:AGD.Candies.FS.MoveDirectoryRecursive(System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Moves contents of source directory to target directory
+            </summary>
+            <param name="p_di_source">Source directory</param>
+            <param name="p_di_target">Target directory</param>
+            <param name="p_owerwrite">True to overwrite existing files in target directory</param>
+        </member>
+        <member name="M:AGD.Candies.FS.FindFilesRecursive(System.String,System.DateTime)">
+            <summary>
+            Find all files in direcotry and its subdirectories modified starting from specified datetime
+            </summary>
+            <param name="p_source_dir">Directory path to search</param>
+            <param name="p_start_dt">Datetime</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.FS.FindFilesRecursive(System.IO.DirectoryInfo,System.DateTime)">
+            <summary>
+            Find all files in direcotry and its subdirectories modified starting from specified datetime
+            </summary>
+            <param name="p_di_source">Directory to search</param>
+            <param name="p_start_dt">Datetime</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.FS.FindAllFilesRecursive(System.String)">
+            <summary>
+            Find all files in directory and its subdirectories
+            </summary>
+            <param name="p_source_dir">Directory path to search</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.FS.FindAllFilesRecursive(System.IO.DirectoryInfo)">
+            <summary>
+            Find all files in directory and its subdirectories
+            </summary>
+            <param name="p_di_source">Directory to search</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.FS.FindFilesRecursive(System.String,System.String)">
+            <summary>
+            Find files in directory and its subdirectories due to defined regex pattern
+            </summary>
+            <param name="p_source_dir">Directory path to search</param>
+            <param name="p_pattern">regex pattern</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.FS.FindFilesRecursive(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            Find files in directory and its subdirectories due to defined regex pattern
+            </summary>
+            <param name="p_di_source">Directory to search</param>
+            <param name="p_pattern">regex pattern</param>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.Candies.SqlStorage">
+            <summary>
+            Class representing SQL queries storage.
+            </summary>
+        </member>
+        <member name="F:AGD.Candies.SqlStorage.dict_sql">
+            <summary>
+            Dictionaries with SQL queries. Key = name, Value = sql query text
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.SqlStorage.GetSqlCommand(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Returns SQLCommand using Query text from dictionary by name, setting up specified SQLConnection
+            </summary>
+            <param name="p_name"></param>
+            <param name="p_con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SqlStorage.GetSqlCommand(System.String,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Returns SQLCommand using Query text from dictionary by name, setting up specified SQLConnection and SqlTransaction
+            </summary>
+            <param name="p_name"></param>
+            <param name="p_con"></param>
+            <param name="p_trans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SqlStorage.GetSqlQuery(System.String)">
+            <summary>
+            Returns SQL Query text from dictionary by name
+            </summary>
+            <param name="p_name">SQL query name</param>
+            <returns>SQL query text</returns>
+        </member>
+        <member name="M:AGD.Candies.SqlStorage.GetSqlQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Returns SQL Query text from dictionary by name with parameters replaced with their values
+            </summary>
+            <param name="p_query_name">SQL query name</param>
+            <param name="d_params">Dictionary with parameters as keys</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.SqlStorage.ReadSqlQueries(System.String)">
+            <summary>
+            Reads SQL Queries from encrypted XML-file
+            </summary>
+            <param name="p_filename">Name of encrypted XML-file</param>
+        </member>
+        <member name="M:AGD.Logger.SaveXmlDocumentSync(System.Xml.XmlDocument)">
+            <summary>
+            Saves XmlDocument in xml log file on the disc using current thread.
+            </summary>
+            <param name="p_document_to_save_on_disk">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.SaveXmlDocumentAsync(System.Xml.XmlDocument)">
+            <summary>
+            Saves XmlDocument in xml log file on the disc using separate thread.
+            </summary>
+            <param name="p_document_to_save_on_disk">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostSync(System.String,System.DateTime,System.Xml.XmlDocument)">
+            <summary>
+            Posts log message using current thread.
+            </summary>
+            <param name="_message">Message text</param>
+            <param name="_now">Message datetime</param>
+            <param name="doc">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostSync(System.Exception,System.DateTime,System.Xml.XmlDocument)">
+            <summary>
+            Posts log message using current thread.
+            </summary>
+            <param name="_err">Exception which contains text message for log</param>
+            <param name="_now">Message datetime</param>
+            <param name="doc">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostSync(AGD.FullLogItem,System.Xml.XmlDocument)">
+            <summary>
+            Posts log message using current thread.
+            </summary>
+            <param name="p_log_item">FullLogItem, which contains message text and datetime</param>
+            <param name="doc">XmlDocument with xml logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostAsync(System.String,System.DateTime,System.Xml.XmlDocument)">
+            <summary>
+            Posts log message using separate thread.
+            </summary>
+            <param name="_message">Message text</param>
+            <param name="_now">Message datetime</param>
+            <param name="doc">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostAsync(System.Exception,System.DateTime,System.Xml.XmlDocument)">
+            <summary>
+            Posts the exception messages using separate thread.
+            </summary>
+            <param name="_err">Exception which contains text message for log</param>
+            <param name="_now">Message datetime</param>
+            <param name="doc">XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.PostAsync(AGD.FullLogItem,System.Xml.XmlDocument)">
+            <summary>
+            Posts log message using separate thread.
+            </summary>
+            <param name="p_log_item">FullLogItem, which contains message text and datetime</param>
+            <param name="doc">XmlDocument with xml logs for saving</param>
+        </member>
+        <member name="M:AGD.Logger.Post(System.Object)">
+            <summary>
+            Posts message to log files (in txt or xml or both logs - depending on the fileMode value) on ther disc
+            </summary>
+            <param name="message">LogMessage for posting to log file</param>
+        </member>
+        <member name="M:AGD.Logger.SaveTxtFile(AGD.Logger.LogMessage)">
+            <summary>
+            Saves LogMessage in txt log file on the disc
+            if _message is null - in txt file will be saved line with "n\a" timestamp and "n\a" text
+            </summary>
+            <param name="_message">LogMessage</param>
+        </member>
+        <member name="M:AGD.Logger.SaveXmlFile(AGD.Logger.LogMessage)">
+            <summary>
+            Saves LogMessage.XmlDocument in xml log file on the disc
+            if p_log_message is null - xml file log will not be saved
+            </summary>
+            <param name="p_log_message">LogMessage which contains XmlDocument</param>
+        </member>
+        <member name="M:AGD.Logger.SaveXmlFile(System.Xml.XmlDocument)">
+            <summary>
+            Safe call for SaveXmlFile_Unsafe method, which saves XmlDocument in xml log file on the disc
+            if p_document_to_save_on_disk is null - xml file log will not be saved
+            </summary>
+            <param name="p_document_to_save_on_disk">XmlDocument for saving to disc</param>
+        </member>
+        <member name="M:AGD.Logger.SaveXmlFile_Unsafe(System.Xml.XmlDocument)">
+            <summary>
+            Saves XmlDocument in xml log file on the disc
+            </summary>
+            <param name="p_document_to_save_on_disk">XmlDocument for saving to disc</param>
+        </member>
+        <member name="M:AGD.Logger.PrepareLogFile(System.String,System.String)">
+            <summary>
+            Creates log file having timestamp in its name. Also creates the folder if necessary
+            </summary>
+            <param name="folder">Location of log file</param>
+            <param name="filename">FileName of log file (without extension)</param>
+        </member>
+        <member name="M:AGD.Logger.CreateEmptyLogFile(System.String,System.String,System.String,System.String@)">
+            <summary>
+            Creates folder and empty file in this folder
+            </summary>
+            <param name="folder">Folder path</param>
+            <param name="filename">File name (without extension)</param>
+            <param name="extension">File extension</param>
+            <param name="result_full_path_storage">Storage for resulting full path to log file</param>
+        </member>
+        <member name="M:AGD.Logger.CreateFile(System.String)">
+            <summary>
+            Creates the file or throws exception
+            </summary>
+            <param name="filePath">FullPath for creating file</param>
+        </member>
+        <member name="M:AGD.Logger.TryToCreateFolder(System.String)">
+            <summary>
+            Creates the folder or throws exception
+            </summary>
+            <param name="path">Path for creating folder</param>
+        </member>
+        <member name="M:AGD.Logger.GenerateFilename(System.String,System.String,System.String)">
+            <summary>
+            Generates file name containing current date and time.
+            If file exists adds counter to its name (Example: C:\Logs\Onotole_LOG_2011.01.01_12-00-00(1).txt)
+            </summary>
+            <param name="folder">Folder path</param>
+            <param name="filename">File name (without extension)</param>
+            <param name="extension">Extension of file</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Logger.LogMessage.#ctor(System.String,System.DateTime,System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="message">Message for posting</param>
+            <param name="logDateTime">DateTime for posting</param>
+            <param name="_xmlDocument">(optional) XmlDocument, with logs for saving</param>
+        </member>
+        <member name="M:AGD.FullLogItem.AddToXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Adds FullLogItem in XML format to containerNode from params
+            </summary>
+            <param name="containerNode">Container XmlNode for current item</param>
+            <returns>XmlNode which was added</returns>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.Configure(System.String,System.String,System.String,System.Boolean,AGD.OldApproach.Logger.LoggerTimeType)">
+            <summary>
+            Creates and configures single instance of logger object
+            </summary>
+            <param name="_output_folder">Folder to store log file</param>
+            <param name="_output_name">Prefix Name of log-file</param>
+            <param name="_output_extension">Extension of log-file (use txt)</param>
+            <param name="_fl_EnableXMLLogging">if true - create xml file in "XML" subfolder and enable posting xml log messages here</param>
+            <param name="p_time_type">Logger Time Type (Default or Delta)</param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.Configure(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Creates and configures single instance of logger object
+            </summary>
+            <param name="_output_folder">Folder to store log file</param>
+            <param name="_output_name">Prefix Name of log-file</param>
+            <param name="_output_extension">Extension of log-file (use txt)</param>
+            <param name="_fl_EnableXMLLogging">if true - create xml file in "XML" subfolder and enable posting xml log messages here</param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.GetInstance">
+            <summary>
+            Retrieves single instance of Logger object
+            </summary>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.PostSync(System.String,System.DateTime)">
+            <summary>
+            Posts log message using current thread.
+            </summary>
+            <remarks>Thread Safe</remarks>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.PostSync(AGD.OldApproach.FullLogItem)">
+            <summary>
+            Adds new FullLogItem node to current document in memory and Posts log message using current thread.
+            </summary>
+            <param name="p_log_item"></param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.PostAsync(System.String,System.DateTime)">
+            <summary>
+            Posts log message using separate thread.
+            </summary>
+            <remarks>Thread Safe</remarks>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.PostAsync(System.Exception,System.DateTime)">
+            <summary>
+            Posts the exception messages using separate thread.
+            </summary>
+            <remarks>Thread Safe</remarks> 
+        </member>
+        <member name="M:AGD.OldApproach.Logger.PostAsync(AGD.OldApproach.FullLogItem)">
+            <summary>
+            Adds new FullLogItem node to current document in memory and Posts log message using separate thread.
+            </summary>
+            <param name="p_log_item"></param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.AddNewNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            Method for adding new node to log XML document in memory
+            if node with name from param rootNodeName isnt exist in document - it was created
+            if adds node from other document - node will be imported in curent document
+            </summary>
+            <param name="node">Xml node for adding</param>
+            <param name="rootNodeName">root node name for adding node here</param>
+            <returns>Added XmlNode</returns>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.AddNewFullLogItem(AGD.OldApproach.FullLogItem)">
+            <summary>
+            Raising OnNewFullLogItemAdded event and Adding new xml node to current log xml document in memory
+            </summary>
+            <param name="p_log_item"></param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.AddNodeToDocument(AGD.OldApproach.FullLogItem)">
+            <summary>
+            Adding new xml node to current log xml document in memory
+            </summary>
+            <param name="p_log_item"></param>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.UpdateXMLFile">
+            <summary>
+            Safe call for UpdateXMLFile_Unsafe method (saving curent log xml document from memory to log xml file)
+            if XML Logging is disabled (_fl_EnableXMLLogging = false) xml log file will not be updated
+            </summary>
+        </member>
+        <member name="M:AGD.OldApproach.Logger.UpdateXMLFile_Unsafe">
+            <summary>
+            Saving curent log xml document from memory to log xml file (threadsafe method)
+            </summary>
+        </member>
+        <member name="M:AGD.DBEntities.GetFieldByPropertyName(System.String,System.String)">
+            <summary>
+            For a particular DBEntity returns field name of an attribute with the specified property.  
+            </summary>
+            <param name="entity_name">Name of DBEntity</param>
+            <param name="property_name">Name of Property</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.DBEntities.ApplyData(System.Object,System.Data.DataRow)">
+            <summary>
+            Loads data to object, according to XML description. Skip if NULL occured. Unsafe: Throws Exceptions
+            </summary>
+            <param name="obj"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:AGD.DBEntities.ApplyData(System.Object,System.Data.DataRow,System.Boolean)">
+            <summary>
+            Loads data to object, according to XML description. Unsafe: Throws Exceptions
+            </summary>
+            <param name="obj"></param>
+            <param name="row"></param>
+            <param name="fl_accept_DB_Null">if true NULL value will be accepted and replaced with data (-1 for Numbers and '#' for Text)</param>
+        </member>
+        <member name="T:AGD.Candies.XmlEncryptor">
+            <summary>
+            Class implementing methods to encrypt and decrypt xml files using Rijndael algorithm
+            </summary>
+        </member>
+        <member name="F:AGD.Candies.XmlEncryptor.encrypt_key_std">
+            <summary>
+            Standard encryption key
+            </summary>
+        </member>
+        <member name="F:AGD.Candies.XmlEncryptor.encrypt_vector_std">
+            <summary>
+            Standard encryption initialization vector
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.LoadEncryptedXml(System.String,System.String,System.String)">
+            <summary>
+            Decrypt xml from file using specified key and vector and loads it to XmlTextReader
+            </summary>
+            <param name="p_filename">Name of file containing encrypted XML</param>
+            <param name="p_key">Encryption key</param>
+            <param name="p_vector">Encryption initialization vector</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.LoadEncryptedXml(System.String)">
+            <summary>
+            Decrypt xml from file using standard key and vector and loads it to XmlTextReader
+            </summary>
+            <param name="p_filename">Name of file containing encrypted XML</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.EncryptXml(System.String,System.String,System.String,System.String)">
+            <summary>
+            Decrypt xml from file using specified key and vector and loads it to XmlTextReader
+            </summary>
+            <param name="p_xml_filename">Source XML fil</param>
+            <param name="p_enc_filename">Destination encrypted XML file</param>
+            <param name="p_key">Encryption key</param>
+            <param name="p_vector">Encryption initialization vector</param>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.EncryptXml(System.String,System.String)">
+            <summary>
+            Encrypts xml file using standard key and vector
+            </summary>
+            <param name="p_xml_filename">Source XML file</param>
+            <param name="p_enc_filename">Destination encrypted XML file</param>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.GenerateEncryptingSettings(System.String)">
+            <summary>
+            Development method used to generate new ecncryption key and vector and save it to text file
+            </summary>
+            <param name="p_filename"></param>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.StringHexToBytes(System.String)">
+            <summary>
+            Converts hex string to byte array
+            </summary>
+            <param name="p_string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.BytesToStringHex(System.Byte[])">
+            <summary>
+            Converts byte array to hex string
+            </summary>
+            <param name="p_byte_array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.EncryptStringToBytes(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypts string to byte array using specified key and vector
+            </summary>
+            <param name="plainText"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.Candies.XmlEncryptor.DecryptStringFromBytes(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypts byte array to string using specified key and vector
+            </summary>
+            <param name="cipherText"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AGD.Simple.Delegate">
+            <summary>
+            The most simple delegate ever.
+            </summary>
+        </member>
+        <member name="T:AGD.Simple.StringDelegate">
+            <summary>
+            Delegate for string to pass through
+            </summary>
+        </member>
+        <member name="T:AGD.Simple.XmlDocumentDelegate">
+            <summary>
+            Delegate for XmlDocument to pass through
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="T:AGD.Simple.SenderXmlDocumentDelegate">
+            <summary>
+            Delegate for object and XmlDocument to pass through
+            </summary>
+            <param name="p_sender"></param>
+            <param name="p"></param>
+        </member>
+        <member name="T:AGD.Simple.ObjectDelegate">
+            <summary>
+            Delegate for object to pass through
+            </summary>
+        </member>
+        <member name="M:AGD.DynamicCoding.XmlHelper.GetXmlNodeByName(System.String,System.Xml.XmlNodeList)">
+            <summary>
+            Returns node from the list By Name. If No node is found, returns null
+            </summary>
+            <param name="p_node_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGD.DynamicCoding.Evaluator.Evaluate(System.String)">
+            <summary>
+            Evaluates the text, replacing known parameters with their values
+            </summary>
+        </member>
+        <member name="T:AGD.DynamicCoding.ParamString">
+            <summary>
+            Stores a string containing parameters and evaluates in a GetValue method 
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.CreateCopy(AGD.Candies.SmartCollection{`0},System.Boolean)">
+            <summary>
+            Creates copy of SmartCollection (establish link to existing objects,  does not create copy of objects)
+            </summary>
+            <param name="p_source_collection">Source collection to be copied</param>
+            <param name="p_fl_use_cvs">Use CollectionViewSource for View?</param>
+            <returns>new collection, that is owned by thread, calling this method</returns>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.CreateCopy(AGD.Candies.SmartCollection{`0})">
+            <summary>
+            Creates copy of SmartCollection (establish link to existing objects, does not create copy of objects)
+            </summary>
+            <param name="p_source_collection">Source collection to be copied</param>
+            <returns>new collection, that is owned by thread, calling this method</returns>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.CreateCopy(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates copy of IEnumerable(Generic) (establish link to existing objects, does not create copy of objects)
+            </summary>
+            <param name="p_source_collection">Source collection to be copied</param>
+            <returns>new collection, that is owned by thread, calling this method</returns>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.CreateCopy(System.Collections.IEnumerable)">
+            <summary>
+            Creates copy of IEnumerable (establish link to existing objects, does not create copy of objects). Will ignore all objects inside of source collection if they do not match requested generic type T.
+            </summary>
+            <param name="p_source_collection">Source collection to be copied</param>
+            <returns>new collection, that is owned by thread, calling this method</returns>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.#ctor">
+            <summary>
+            Initialized new instance of SmartColleciton. CollectionViewSource is not used.
+            </summary>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.#ctor(System.Boolean)">
+            <summary>
+            Initialized new instance of SmartColleciton (CollectionViewSource usage depends on flag).
+            </summary>
+            <param name="p_fl_use_cvs">True to use CollectionViewSource</param>
+        </member>
+        <member name="M:AGD.Candies.SmartCollection`1.RemoveSilent(`0)">
+            <summary>
+            Removes item out of collection (same as usual .Remove() - first occurance). If already removed or never presented in collection - does not raises exception.
+            </summary>
+            <param name="p_item"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3 @@
+.rscproxy.init	rscproxy-internal
+as.data.frame.rcomdata	as.data.frame.rcomdata
+as.matrix.rcomdata	convert

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+vb_excel_coop
+</name>
+</assembly>
+<members>
+<member name="F:vb_excel_coop.cl_vb_excel_coop.str_xls_path">
+	<summary>
+ path to current excel document
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.open_file(System.String)">
+	<summary>
+ Opens excel file read-only.
+ </summary>
+	<param name="str_path">full path to .xls document</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.open_file(System.String,System.Boolean)">
+	<summary>
+ Opens excel file
+ </summary>
+	<param name="str_path">file path</param>
+	<param name="_readonly">specifies if the file will be opened with readonly access</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.open_file(System.String,System.Boolean,System.Boolean)">
+	<summary>
+ Opens excel file
+ </summary>
+	<param name="str_path">file path</param>
+	<param name="_readonly">specifies if the file will be opened with readonly access</param>
+	<param name="_display_alerts">sets if mr.Excel will display the annoying alerts while working with the file</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetListOfWorksheetNames">
+	<summary>
+ returns array of worksheet names in opened Excel Workbook
+ </summary>
+	<returns>string array</returns>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.create_file(System.String)">
+	<summary>
+ Creates new excel document
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.CreateFile(System.String)">
+	<summary>
+ Creates new excel document with specified path. 
+ </summary>
+	<param name="str_path"></param>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.close_book(System.Boolean)">
+	<summary>
+ Closes book with specification - Save or Discard changes.
+ </summary>
+	<param name="p_SaveChanges">True for apply changes, False for discard</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.CloseBook(System.Boolean,System.Boolean)">
+	<summary>
+ Closes book with specification - Save or Discard changes, and Close Excel Application or not
+ </summary>
+	<param name="p_SaveChanges">True for apply changes, False for discard</param>
+	<param name="p_CloseApplication">True to close Excel Application</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.CloseApplication">
+	<summary>
+ Closes Excel Application
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.close_book">
+	<summary>
+ Closes book without saving changes
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.ShowHideWorksheet(System.String,System.Boolean)">
+	<summary>
+ Hides/Shows worksheet of the opened workbook
+ </summary>
+	<param name="p_sheet_name">Excel worksheet name</param>
+	<param name="p_show">True to show, false to hide</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.select_ws(System.String)">
+	<summary>
+ 
+ Specifies worksheet of the opened workbook to work with.
+ </summary>
+	<param name="p_sheet_name">Excel worksheet name</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.select_ws(System.Int32)">
+	<summary>
+ Specifies worksheet of opened workbook to work with.
+ </summary>
+	<param name="p_sheet_index">Excel worksheet index (starting from 1)</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetTable">
+	<summary>
+ returns 2-dim array from A1 to Excel Special Cell - 'xlCellTypeLastCell' of specified worksheet
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetTable(System.String)">
+	<summary>
+ returns 2-dim array from the specified first cell to Excel Special Cell - 'xlCellTypeLastCell' of specified worksheet
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetTable(System.String,System.String)">
+	<summary>
+ returns 2-dim array from the specified first cell to the specified last cell
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetTableFormulas(System.String)">
+	<summary>
+ returns 2-dim array from the specified first cell to Excel Special Cell - 'xlCellTypeLastCell' of specified worksheet
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.FillRange(System.String,System.Array)">
+	<summary>
+ Fills range in the opened book on the specified sheet. 
+ </summary>
+	<param name="_start_from">this is first row/column (format like A1, not R1C1 style)</param>
+	<param name="_array">2-dim array. 0 dim is Row, 1 dim is Column</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SetValue(System.String,System.Object)">
+	<summary>
+ Sets the cell value
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetColumnNameByIndex(System.Int64)">
+	<summary>
+ Returns Excel-like column encoding for specified column index in string caps format. E.g. column 1 = A, column 5 = E etc.
+ </summary>
+	<param name="_ix">Column Index (processing range is 1 to 18278)</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.GetColumnIndexByName(System.String)">
+	<summary>
+ Returns the numeric index of the specified column starting from 1
+ </summary>
+	<param name="name">The column name from A to ZZZ</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.display_alerts(System.Boolean)">
+	<summary>
+ Sets whether alerts must be displayed (like "Do you really want to save this file?")
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SetCellsFormat(System.String,System.String)">
+	<summary>
+ Set cells format of range 
+ </summary>
+	<param name="_range">this is last row/column (format like A1, not R1C1 style)</param>
+	<param name="_cells_format">Set the cells format (format like A1, not R1C1 style)</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.ExcelVisible(System.Boolean)">
+	<summary>
+ Set Excel visibility
+ </summary>
+	<param name="_visible">True/False</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SetFontStyle(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Select Range of cells
+ </summary>
+	<param name="_range">range (format like A1, not R1C1 style)</param>
+	<param name="_font_bold">font_bold</param>
+	<param name="_font_underline">font_background</param>
+	<param name="R">RGB color, value R (ex: 244, 164, 96)</param>
+	<param name="G">RGB color, value G</param>
+	<param name="B">RGB color, value B</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SaveBook(System.String)">
+	<summary>
+ Saves book, using XlFileFormat.xlWorkbookNormal
+ </summary>
+	<param name="_book_adress"></param>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SaveBookDefault(System.String)">
+	<summary>
+ Saves workbook, using XlFileFormat.xlWorkbookDefault
+ </summary>
+	<param name="_book_adress"></param>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SaveBook(System.String,Microsoft.Office.Interop.Excel.XlFileFormat)">
+	<summary>
+ Saves workbook, format should be specified
+ </summary>
+	<param name="p_book_adress"></param>
+	<param name="p_File_Format"></param>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.CheckWsIsSelected">
+	<summary>
+ All worksheet-depended methods must call this sub in begining
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.ColumnNameIsCorrect(System.String)">
+	<summary>
+ Checks if the given name consists of letters and has proper length
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.SelectRange(System.String)">
+	<summary>
+ Selects the given range in active worksheet
+ </summary>
+	<param name="p_range">Range to select</param>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.DeleteAllSheetsButFirst">
+	<summary>
+ Delete All Sheets But First Sheet on Active WorkBook
+ </summary>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.AddWorkSheet">
+	<summary>
+ Add WorkSheet on Active WorkBook
+ </summary>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.RenameActiveWorkSheet(System.String)">
+	<summary>
+ Rename Active WorkSheet
+ </summary>
+	<remarks></remarks>
+</member><member name="M:vb_excel_coop.cl_vb_excel_coop.AddWorkBook">
+	<summary>
+ Add Workbook
+ </summary>
+	<remarks></remarks>
+</member><member name="P:vb_excel_coop.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:vb_excel_coop.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:vb_excel_coop.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

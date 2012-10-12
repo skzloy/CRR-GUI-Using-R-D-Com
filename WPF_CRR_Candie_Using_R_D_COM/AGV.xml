@@ -1,0 +1,1969 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AGV</name>
+    </assembly>
+    <members>
+        <member name="T:AGV.Windows.wnd_Sort">
+            <summary>
+            Interaction logic for wnd_Sort.xaml
+            </summary>
+            <summary>
+            wnd_Sort
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.CageyWindow">
+            <summary>
+            This class should be used as mandatory parent for any window in AGV assembly
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Sort.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_MTExecutionVisualLog">
+            <summary>
+            Interaction logic for wnd_MTExecutionVisualLog.xaml
+            </summary>
+            <summary>
+            wnd_MTExecutionVisualLog
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_MTExecutionVisualLog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Input">
+            <summary>
+            Interaction logic for wnd_Input.xaml
+            </summary>
+            <summary>
+            wnd_Input
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Input.FillInParameters(System.Collections.Generic.List{AGV.Windows.InputParameter},System.Windows.Window,System.String)">
+            <summary>
+            Shows window as ShowDialog. Returns true if 'Ok', false if 'Cancel'
+            </summary>
+            <param name="p_params"></param>
+            <param name="p_owner"></param>
+            <param name="p_my_caption"></param>
+            <returns>true if 'Ok', false if 'Cancel'</returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Input.FillInParameters(AGV.Windows.InputParameter,System.Windows.Window,System.String)">
+            <summary>
+            Shows window as ShowDialog. Returns true if 'Ok', false if 'Cancel'
+            </summary>
+            <param name="p_param"></param>
+            <param name="p_owner"></param>
+            <param name="p_my_caption"></param>
+            <returns>true if 'Ok', false if 'Cancel'</returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Input.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AGV.TM.ThreadsMarshal.CloseWindow">
+            <summary>
+            Closes ThreadsMarshal window (only if task finished)
+            </summary>
+        </member>
+        <member name="M:AGV.TM.ThreadsMarshal.ChangeWindowTitleAndBackground(System.String,System.Windows.Media.Brush)">
+            <summary>
+            Safely changed windoe Title and Background properties
+            </summary>
+            <param name="p_title">New window title</param>
+            <param name="p_brush">New window background</param>
+        </member>
+        <member name="F:AGV.TM.ThreadsMarshal.Tasks">
+            <summary>
+            each key - is wait sync point
+            <para>.</para>
+            <para>each value - list of tasks for simultaneous execution, </para>
+            <para>after sync point is available (SyncPoints[sync_point_number] == 0)</para>
+            </summary>
+        </member>
+        <member name="F:AGV.TM.ThreadsMarshal.SyncPoints">
+            <summary>
+            this dictionary helps with syncpoints availability. 
+            <para>If value = 0, then it is free, otherwise value represents number of tasks to be completed</para>
+            </summary>
+        </member>
+        <member name="P:AGV.TM.ThreadsMarshal.ThreadForTerminating">
+            <summary>
+            this is write only properoty. Thread will be terminated on window close
+            </summary>
+        </member>
+        <member name="M:AGV.TM.Task.GetTimeShiftInSeconds(System.DateTime)">
+            <summary>
+            Method for Calculate execution delta interval in ExecuteTask method
+            </summary>
+            <param name="p_start">Start execution DateTime</param>
+            <returns>Delta of execution interval (in seckonds)</returns>
+        </member>
+        <member name="M:AGV.TM.Task.GetAlternateName">
+            <summary>
+            Method used in property "Name" of Task in GET accessor.
+            If name field IsNullOrEmpty, returns string from this method, overriden from child
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.TM.Task.ExecuteTask">
+            <summary>
+            must be synchronous method!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:AGV.TM.Task.data">
+            <summary>
+            Incapsulated Data
+            </summary>
+        </member>
+        <member name="P:AGV.TM.TaskExecutionResults.Succeeded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.TM.TaskExecutionResults.ExecutionTime">
+            <summary>
+            Execution time of task in seconds
+            </summary>
+        </member>
+        <member name="P:AGV.TM.TaskExecutionResults.AdditionalInfo">
+            <summary>
+            Additional Info in XML-format
+            </summary>
+        </member>
+        <member name="T:AGV.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AGV.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AGV.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Percents">
+            <summary>
+            Interaction logic for Graph_Percents.xaml
+            </summary>
+            <summary>
+            Graph_Percents
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Percents.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.FileSelectorControl">
+            <summary>
+            Interaction logic for FileSelectorControl.xaml
+            </summary>
+            <summary>
+            FileSelectorControl
+            </summary>
+        </member>
+        <member name="M:AGV.FileSelectorControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.ExcDetails.ExceptionInfoProperty">
+            <summary>
+            Class represents key/pair property value of ExceptionInfo instance
+            </summary>
+        </member>
+        <member name="T:AGV.ZV">
+            <summary>
+            Class containing help functions concerning user interface
+            </summary>
+        </member>
+        <member name="M:AGV.ZV.ApplyAeroStyle(System.Windows.Application)">
+            <summary>
+            
+            </summary>
+            <param name="p_app"></param>
+        </member>
+        <member name="M:AGV.ZV.ApplyAeroStyle(System.Windows.FrameworkElement)">
+            <summary>
+            
+            </summary>
+            <param name="p_element"></param>
+        </member>
+        <member name="M:AGV.ZV.ApplyAeroStyle(System.Windows.ResourceDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="p_res"></param>
+        </member>
+        <member name="M:AGV.ZV.FindVisualParent``1(System.Windows.UIElement)">
+            <summary>
+            Finds visual parent of specific type 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.ZV.UI_TreeIsEnable(System.Windows.UIElement)">
+            <summary>
+            Enables element and all its children
+            </summary>
+            <param name="p_ui"></param>
+        </member>
+        <member name="M:AGV.ZV.UI_TreeIsEnable(System.Windows.UIElement,System.Boolean)">
+            <summary>
+            Enables or disables element and all its children
+            </summary>
+            <param name="p_ui"></param>
+            <param name="p_enable"></param>
+        </member>
+        <member name="M:AGV.ZV.UI_TreeIsVisible(System.Windows.UIElement,System.Windows.Visibility)">
+            <summary>
+            Changes 'Visibility' property of element and all its children
+            </summary>
+            <param name="p_ui"></param>
+        </member>
+        <member name="T:AGV.Windows.wnd_Prompt">
+            <summary>
+            wnd_Prompt
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Prompt.#ctor(System.Windows.Window,System.String,System.String)">
+            <summary>
+            Creates window displaying message to user. Closes only if user input is equal to special string
+            If p_check_value is empty or null, any result is accepted.
+            </summary>
+            <param name="p_parent">Parent window</param>
+            <param name="p_message">Message displayed to user</param>
+            <param name="p_check_value">String to compare with user input</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Prompt.#ctor(System.Windows.Window,System.String,System.String,System.String)">
+            <summary>
+            Creates window displaying message to user. Closes only if user input is equal to special string
+            If p_check_value is empty or null, any result is accepted.
+            </summary>
+            <param name="p_parent">Parent window</param>
+            <param name="p_message">Message displayed to user</param>
+            <param name="p_check_value">String to compare with user input</param>
+            <param name="p_default_value">Default input value</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Prompt.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Column">
+            <summary>
+            Interaction logic for Graph_Column.xaml
+            </summary>
+            <summary>
+            Graph_Column
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Column.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Candies.RichTextBox">
+            <summary>
+            Customized control with additional methods: LoadFromString, SaveToString
+            </summary>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.SaveToString(System.String)">
+            <summary>
+            Saves contents to string in specific format
+            </summary>
+            <param name="p_format">System.Windows.DataFormats format</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.LoadFromString(System.String)">
+            <summary>
+            Clears Contents and loads text from string without formatting
+            </summary>
+            <param name="p_str">Text</param>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.LoadFromString(System.String,AGV.Candies.RichTextBox.Rtb_Save_Format)">
+            <summary>
+            Clears Contents and loads text from string
+            </summary>
+            <param name="p_str">Text</param>
+            <param name="p_format">Format</param>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.SaveToString">
+            <summary>
+            Saves contents to string in Rtf format by default
+            </summary>
+            <returns>technical plain text, containing data and formatting description</returns>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.SaveToString(AGV.Candies.RichTextBox.Rtb_Save_Format)">
+            <summary>
+            Saves contents to string in specific format
+            </summary>
+            <param name="p_format">limited AGV specific enum (instead of string, more details System.Windows.DataFormats)</param>
+            <returns>technical plain text, containing data and formatting description</returns>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.AppendString(System.String)">
+            <summary>
+            Appends unformatted string (using Paragraph and Run elements)
+            </summary>
+            <param name="p_str">plain text</param>
+            <returns>void</returns>
+        </member>
+        <member name="M:AGV.Candies.RichTextBox.Rtb_Save_Format.ToString">
+            <summary>
+            returns string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AGV.Candies.RichTextBox.Rtb_Save_Format.FormatEnum">
+            <summary>
+            enumeration instead of string, more details System.Windows.DataFormats
+            </summary>
+        </member>
+        <member name="M:AGV.Candies.BindableRichTextBox.#ctor">
+            <summary>
+            RichTextBox which has dependency property Document for binding FlowDocument
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_ExeptionDetails">
+            <summary>
+            Interaction logic for wnd_ExeptionDetails.xaml
+            </summary>
+            <summary>
+            wnd_ExeptionDetails
+            </summary>
+        </member>
+        <member name="F:AGV.Windows.wnd_ExeptionDetails.sc_exception_info">
+            <summary>
+            SmartCollection for Adding exception_info instances, used for Displays exception_infos in UI
+            </summary>
+        </member>
+        <member name="F:AGV.Windows.wnd_ExeptionDetails.fl_CanDoneAfterError">
+            <summary>
+            Flag for state of btn_AppContinue (Visible/Collapsed)
+            </summary>
+        </member>
+        <member name="F:AGV.Windows.wnd_ExeptionDetails.instance">
+            <summary>
+            Singleton instance field
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.FilterSystemNamespaces(System.Object)">
+            <summary>
+            Filter system namespaces function (for using like Items.Filter delegate)
+            </summary>
+            <param name="p_obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.AddException(System.Exception)">
+            <summary>
+            Add new exception in end of window exceptions smartcollection
+            </summary>
+            <param name="p_exception"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.AddExceptionAndShowWindow(System.Exception)">
+            <summary>
+            Method for Add Exception in end of window exceptions smartcollection
+            and Show window (by ShowDialog mode) if it necessary
+            </summary>
+            <param name="p_exception"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.SetUIData(AGV.ExcDetails.ExceptionInfo)">
+            <summary>
+            Method Sets data for UI Controls (exception info grid, stacktrace grid and etc.) from ExceptionInfo in param
+            </summary>
+            <param name="p_ei"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExeptionDetails.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.wnd_ExeptionDetails.IsCanDoneAfterError">
+            <summary>
+            Property for get and set accesess for fl_CanDoneAfterError field
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.wnd_ExeptionDetails.Instance">
+            <summary>
+            Singleton instance property of this window
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_FilterItemSelection">
+            <summary>
+            Interaction logic for wnd_FilterItemSelection.xaml
+            </summary>
+            <summary>
+            wnd_FilterItemSelection
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_FilterItemSelection.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.euGridView">
+            <summary>
+            Interaction logic for euGridView.xaml
+            </summary>
+            <summary>
+            euGridView
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.AddMenuItems(System.Collections.Generic.List{System.Object})">
+            <summary>
+            Add Menuitems or Separators in List to ContextMenu. Skips other objects.
+            </summary>
+            <param name="lst_of_items"></param>
+        </member>
+        <member name="M:AGV.euGridView._Initialize(System.Type,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Initializes euGrid, checks if Type or connections are null, and show exceptions if they are.
+            Requires Entities/DBEntities to be properly initialized before euGrid Initialization.
+            </summary>
+            <param name="p_cont_type">Type of class for euGrid to work with</param>
+            <param name="p_conn_data">Connection for data loading</param>
+            <param name="p_conn_settings">Connection for euGridSettings loading</param>
+        </member>
+        <member name="M:AGV.euGridView._Initialize(System.String,System.String,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            euGrid Initialization using only table structure and connection
+            </summary>
+            <param name="p_table_scheme">Scheme name</param>
+            <param name="p_table_name">Table name</param>
+            <param name="p_conn_data">Connection for data loading</param>
+            <param name="p_conn_settings">Connection for euGridSettings loading</param>
+        </member>
+        <member name="M:AGV.euGridView._Initialize(System.Type,AGD.Candies.SmartCollection{System.Object},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            euGrid Initialization using SmartCollection and connection for euGridSettings
+            </summary>
+            <param name="p_cont_type">Type of objects in SmartCollection</param>
+            <param name="p_sc">Filled SmartCollection</param>
+            <param name="p_conn_settings">Connection for euGridSettings loading</param>
+        </member>
+        <member name="M:AGV.euGridView._Init_Finalize">
+            <summary>
+            All euGrid initializations end up here
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.ConnectionAvailable">
+            <summary>
+            Makes sure that connection to server is open and table exists in schema.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.ConnectionAvailable(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Check Connection. Perform sql. 
+            </summary>
+            <param name="str_select">sql query</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.InitializeEntities">
+            <summary>
+            Initialize Entities and DBEntities objects according to generated class structure.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.GenerateListOfEntityProps">
+            <summary>
+            Returns List of properties created according to table structure for Entity initialization. 
+            </summary>
+            <returns> List of AGD.Entities.Property </returns>
+        </member>
+        <member name="M:AGV.euGridView.GenerateListOfDBentityProps">
+            <summary>
+            Returns Dictionary of properties created according to table structure for DBEntity initialization. 
+            </summary>
+            <returns> Dictionary (property name : property_value) </returns>
+        </member>
+        <member name="M:AGV.euGridView.CreateDynamicClass">
+            <summary>
+            Generate class according to table structure in AGV namespace and invokes it.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.InstantiateClassFromCodeString(System.String)">
+            <summary>
+            Compile codeString to generate class in memory. On errors shows messagebox
+            </summary>
+            <param name="codeString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.Create_class(System.Collections.Generic.Dictionary{System.String,System.Type},System.String,System.String)">
+            <summary>
+            Returns codeString for dynamic class generation with INotifyPropertyChanged interface. 
+            Also creates generated class as file - GeneratedClass.cs in debug folder. 
+            </summary>
+            <param name="p_props"></param>
+            <param name="p_str_namespace"></param>
+            <param name="p_class_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.CreateProperty(System.String,System.String,System.Type)">
+            <summary>
+            Creates dom description of a simple GET/SET property due to parameters
+            </summary>
+            <param name="field"></param>
+            <param name="name"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.LoadTableStructure">
+            <summary>
+            Loads fields with their types from the table. 
+            Converts string descr of field type from table to Type object.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.ClearFromDelimeters(System.String,System.String[])">
+            <summary>
+            Gets your string and replaces all delimeters on _#_ where # - index of delimeter in parameter _1_, _2_ etc
+            </summary>
+            <param name="p_field_name">string to clear from delimeter</param>
+            <param name="p_delimeters">array of delimeters</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.ClearFromDelimeters(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Gets your string and replaces all delimeters on values 
+            </summary>
+            <param name="p_field_name">Your string to modify</param>
+            <param name="p_d_delimeters">Dictionary(what to replace, what to paste)</param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.Convert2ShartType(System.String)">
+            <summary>
+            Reads xml document with type_mapping
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.GetPrimaryKeyIfExists">
+            <summary>
+            Get PK for table in defined table schema if it is exists.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.LoadColumnsFromSettings">
+            <summary>
+            Load columns to euGrid
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.ShowEUGridOfProperDisplayMode">
+            <summary>
+            Show euGrid of defined display mode
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView._LoadData">
+            <summary>
+            Load all data to euGrid from schema.table defined in euGrid initialization.
+            Could be used only when euGrid was Initialized with schema name and 
+            table name attributes.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView._LoadData(System.String)">
+            <summary>
+            Load data to euGrid using sql query
+            </summary>
+            <param name="p_str_sql">sql query for loading data</param>
+        </member>
+        <member name="M:AGV.euGridView.UpdateData">
+            <summary>
+            Updates data in euGrid using SQLConnection for data loading defined in euGrid initialization.
+            Query for new data selection will be "select * from table_scheme.table_name"
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.AppendData">
+            <summary>
+            Updates data that already exists in euGrid and
+            appends new data to euGrid using SQLConnection for data loading defined in euGrid initialization.
+            Query for new data selection will be "select * from table_scheme.table_name"
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.UpdateData(System.String)">
+            <summary>
+            Updates data in euGrid using SQLConnection for data loading defined in euGrid initialization.
+            </summary>
+            <param name="p_sql_str">SQL for data update</param>
+        </member>
+        <member name="M:AGV.euGridView.AppendData(System.String)">
+            <summary>
+            Updates data that already exists in euGrid and
+            appends new data to euGrid using SQLConnection for data loading defined in euGrid initialization.
+            </summary>
+            <param name="p_sql_str">SQL for data append</param>
+        </member>
+        <member name="M:AGV.euGridView.RefreshDataInEuGrid(System.Boolean)">
+            <summary>
+            Refresh data in euGrid. 
+            Could be applied when euGrid is initialized with table_scheme.table_name attributes.
+            Query for data selection will be "select * from table_scheme.table_name"
+            </summary>
+            <param name="append_new_data">if true - data in euGrid will be updated + new data will be appended
+            to the end of the data in euGrid.
+            false - data in euGrid will be updated only</param>
+        </member>
+        <member name="M:AGV.euGridView.UpdateData(AGD.Candies.SmartCollection{System.Object})">
+            <summary>
+            Updates data in euGrid from new SmartCollection as Source
+            </summary>
+            <param name="p_sc">Source for update</param>
+        </member>
+        <member name="M:AGV.euGridView.AppendData(AGD.Candies.SmartCollection{System.Object})">
+            <summary>
+            Updates objects in euGrid from new SmartCollection as Source
+            and appends new objects to the end of the euGrid
+            </summary>
+            <param name="p_sc">Source for update</param>
+        </member>
+        <member name="M:AGV.euGridView.RefreshDataInEuGrid(AGD.Candies.SmartCollection{System.Object},System.Boolean)">
+            <summary>
+            Refresh data in euGrid. Uses SmartCollection as Source
+            </summary>
+            <param name="p_sc">Source for update</param>
+            <param name="append_new_data">if true - data in euGrid will be updated + new data will be appended
+            to the end of the data in euGrid. false - data in euGrid will be updated only</param>
+        </member>
+        <member name="M:AGV.euGridView.RefreshDataInEuGrid(System.String,System.Boolean)">
+            <summary>
+            Refresh data in euGrid. 
+            Uses sql string to aquire new data and Primary Key 
+            from euGridSettings or table_scheme.table_name, depends on euGrid Initialization way. 
+            </summary>
+            <param name="p_str_sql">sql select string</param>
+            <param name="append_new_data">if true - data in euGrid will be updated + new data will be appended
+            to the end of the data in euGrid. false - data in euGrid will be updated only</param>
+        </member>
+        <member name="M:AGV.euGridView.GetPKFromObject(System.Object)">
+            <summary>
+            returns Primary Key value from object. PK source depends in euGrid Initialization way.
+            </summary>
+            <param name="p_obj">Smart Collection object from euGrid</param>
+            <returns>"_" separated PK string</returns>
+        </member>
+        <member name="M:AGV.euGridView.GetPKFromDataRow(System.Data.DataRow)">
+            <summary>
+            returns Primary Key value from DataRow. PK source depends in euGrid Initialization way.
+            </summary>
+            <param name="p_dt">datarow with same field names as in PK_table_name</param>
+            <returns>"_" separated PK string</returns>
+        </member>
+        <member name="M:AGV.euGridView._ShowColumnsDialog">
+            <summary>
+            Shows dialog for column selection.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView._ShowSortDialog">
+            <summary>
+            Show sort dialog.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.__CopySelection">
+            <summary>
+            Copy selected rows from euGrid to clipboard as tab separated string.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.__CopyTable">
+            <summary>
+            Copy all rows from euGrid to clipboard as tab separated string.
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.PasteFromClipBoard(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for Pasting Data from ClipBoard
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AGV.euGridView.__PasteFromClipBoard">
+            <summary>
+            Unsafe pasting method
+            Clears current SmartCollection. Pastes data from clipboard to SmartCollection and shows it in euGrid
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.euGridView.euGridSettings">
+            <summary>
+            Settings class for euGrid. 
+            Encapsulates operations with favourite views and selected columns for euGrid
+            </summary>
+        </member>
+        <member name="M:AGV.euGridView.euGridSettings.#ctor(System.Data.SqlClient.SqlConnection,System.Type)">
+            <summary>
+            Initialize settings for euGrid, require sql connection to db where settings are stored
+            They stores in table with t_us prefix. 
+            </summary>
+            <param name="p_sql_conn">Connection to db where settings are stored</param>
+            <param name="p_content_type">Type of objects in euGrid</param>
+        </member>
+        <member name="M:AGV.euGridView.euGridSettings.GetPKfromDataRow(System.Data.DataRow)">
+            <summary>
+            Gets PK from datarow
+            </summary>
+            <param name="cur_row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.euGridSettings.GetPKfromObject(System.Object)">
+            <summary>
+            Gets PK from object. Object is the same, as in eugrid initialization. 
+            </summary>
+            <param name="p_obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.euGridView.euGridSettings.GetFieldNamesInPK">
+            <summary>
+            Loads list of PK field names from t_us_t_us_DBEntity_PK
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_PleaseWait">
+            <summary>
+            Interaction logic for wnd_PleaseWait.xaml
+            </summary>
+            <summary>
+            wnd_PleaseWait
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_PleaseWait.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Columns">
+            <summary>
+            Interaction logic for wnd_Columns.xaml
+            </summary>
+            <summary>
+            wnd_Columns
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Columns.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_AdvancedFilter">
+            <summary>
+            Interaction logic for wnd_AdvancedFilter.xaml
+            </summary>
+            <summary>
+            wnd_AdvancedFilter
+            </summary>
+        </member>
+        <member name="T:AGV.IRestorable">
+            <summary>
+            Provides availability to restore its state from XML document
+            </summary>
+        </member>
+        <member name="M:AGV.IRestorable.LoadSetup(System.Xml.XmlDocument)">
+            <summary>
+            Restores object state from XML document
+            </summary>
+            <param name="p_choice">XML document with saved object state</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_AdvancedFilter.CheckIfThereAreProcessingTabs">
+            <summary>
+            True if at least one of tabs is in processing state. (IsProcessing == true). False if all tabs are ready.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_AdvancedFilter.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.wnd_AdvancedFilter.FieldTabItem.IsProcessing">
+            <summary>
+            True, if is waiting for data to be sent back to this control. False if ready.
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.AdvancedFilterResult.Cancelled">
+            <summary>
+            True if 'Cancel' was pressed to exit from window. It is not recommended to access any other members in this object if Cancelled == true
+            </summary>
+        </member>
+        <member name="T:AGV.BlockingContentControl">
+            <summary>
+            Represents a control having feature to block its content
+            </summary>
+        </member>
+        <member name="M:AGV.BlockingContentControl.ShowCancelButtonIfAllowed">
+            <summary>
+            Shows 'Cancel' button if CancelAllowed = true
+            </summary>
+        </member>
+        <member name="M:AGV.BlockingContentControl.BlockContent">
+            <summary>
+            Blocks control content (if not blocked) by showing grid over it
+            </summary>
+        </member>
+        <member name="M:AGV.BlockingContentControl.UnBlockContent">
+            <summary>
+            Unblocks control content (if blocked) by hiding grid
+            </summary>
+        </member>
+        <member name="M:AGV.BlockingContentControl.BlockContent(System.Windows.UIElement)">
+            <summary>
+            Finds parent BlockingContentControl and calls BlockContent() method
+            </summary>
+            <param name="p_el"></param>
+        </member>
+        <member name="M:AGV.BlockingContentControl.UnBlockContent(System.Windows.UIElement)">
+            <summary>
+            Finds parent BlockingContentControl and calls UnBlockContent() method
+            </summary>
+            <param name="p_el"></param>
+        </member>
+        <member name="P:AGV.BlockingContentControl.CancelAllowed">
+            <summary>
+            If set to true, 'Cancel' button is showed in 5 seconds after BlockContent() method launch
+            </summary>
+        </member>
+        <member name="E:AGV.BlockingContentControl.OnRequestToUnBlockContent">
+            <summary>
+            Occurs when 'Cancel' button is clicked
+            </summary>
+        </member>
+        <member name="E:AGV.BlockingContentControl.OnContentUnBlocked">
+            <summary>
+            Occurs when control content is unblocked
+            </summary>
+        </member>
+        <member name="E:AGV.BlockingContentControl.OnContentBlocked">
+            <summary>
+            Occurs when control content is blocked
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Distribution2">
+            <summary>
+            Interaction logic for Graph_Distribution.xaml
+            </summary>
+            <summary>
+            Graph_Distribution2
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Distribution2.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Views">
+            <summary>
+            Interaction logic for wnd_Views.xaml
+            </summary>
+            <summary>
+            wnd_Views
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.ShowToolTips">
+            <summary>
+            Adds ToolTips to visual elements of wnd_Views
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.CreateToolTip(System.String,System.String)">
+            <summary>
+            Creates tooltip with Bold header and plain body
+            </summary>
+            <param name="p_header"></param>
+            <param name="p_body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.HideToolTips">
+            <summary>
+            Delete all tooltips
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.RefreshSavedViews">
+            <summary>
+            Refresh items in listview lv_saved_views, gets new list of saved views from settings.GetListOfView
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.AutoSizeColumns">
+            <summary>
+            Resize columns in listview to fit its content
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Views.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_FunnyBunnyResults">
+            <summary>
+            Interaction logic for wnd_FunnyBunnyResults.xaml
+            </summary>
+            <summary>
+            wnd_FunnyBunnyResults
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_FunnyBunnyResults.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.ListOfItems">
+            <summary>
+            Interaction logic for ListOfItems.xaml
+            </summary>
+            <summary>
+            ListOfItems
+            </summary>
+        </member>
+        <member name="M:AGV.ListOfItems.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Bar">
+            <summary>
+            Interaction logic for Graph_Bar.xaml
+            </summary>
+            <summary>
+            Graph_Bar
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Bar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.ExcDetails.ExceptionInfo">
+            <summary>
+            Class for represent main Exception info (message, data, source, InnerException, etc.)
+            and all exception parent (Class instance) properties
+            </summary>
+        </member>
+        <member name="F:AGV.ExcDetails.ExceptionInfo.originalST">
+            <summary>
+            Original stacktrace info (only for DBG purposes, will be removed in future)
+            </summary>
+        </member>
+        <member name="F:AGV.ExcDetails.ExceptionInfo.CurrentExceptionParent">
+            <summary>
+            Reference on instance of Current Exception Parent object
+            </summary>
+        </member>
+        <member name="M:AGV.ExcDetails.ExceptionInfo.#ctor(System.Exception)">
+            <summary>
+            Creates ExceptionInfo by extract exception info from Exception in param
+            </summary>
+            <param name="p_exception"></param>
+        </member>
+        <member name="M:AGV.ExcDetails.ExceptionInfo.GetExInfoPropsList(System.Exception)">
+            <summary>
+            Gets List of ExceptionInfoProperty for Exception from param
+            </summary>
+            <param name="p_ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.ExcDetails.ExceptionInfo.FillExInfoPropsList(System.Collections.Generic.List{AGV.ExcDetails.ExceptionInfoProperty},System.Reflection.MemberInfo[])">
+            <summary>
+            Method get Fields and Properties from MemberInfo[] members in params and fill list in params
+            </summary>
+            <param name="list"></param>
+            <param name="members"></param>
+        </member>
+        <member name="P:AGV.ExcDetails.ExceptionInfo.InnerExInfoList">
+            <summary>
+            Property for binding.
+            GET accessor return list, consist of one element (innerExInfo) or null if innerExInfo = null
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_VisualTree">
+            <summary>
+            Interaction logic for Window1.xaml
+            </summary>
+            <summary>
+            wnd_VisualTree
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_VisualTree.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Information">
+            <summary>
+            Interaction logic for wnd_Information.xaml
+            </summary>
+            <summary>
+            wnd_Information
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Information.ShowDialogAsync">
+            <summary>
+            Method call Showdialogmethod in bg thread
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Information.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.TrafficLights">
+            <summary>
+            Control that contains three circles: Red, Yellow and Green
+            </summary>
+        </member>
+        <member name="M:AGV.TrafficLights.PrepareBrushesAndPens">
+            <summary>
+            Initialize all brushes and pens
+            </summary>
+        </member>
+        <member name="P:AGV.TrafficLights.Orientation">
+            <summary>
+            Gets or sets a value that indicates the dimension by which lights are placed
+            </summary>
+        </member>
+        <member name="P:AGV.TrafficLights.CurrentState">
+            <summary>
+            Gets or sets current state of control
+            </summary>
+        </member>
+        <member name="P:AGV.TrafficLights.Background">
+            <summary>
+            Gets or sets a brush that describes the background of a control.
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Bezier">
+            <summary>
+            Interaction logic for Graph_Bezier.xaml
+            </summary>
+            <summary>
+            Graph_Bezier
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Bezier.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Filter">
+            <summary>
+            Interaction logic for Filter.xaml
+            </summary>
+            <summary>
+            Filter
+            </summary>
+        </member>
+        <member name="M:AGV.Filter.AddNewFilterItem(AGV.Filter.FilterProperty)">
+            <summary>
+            Adds new FilterItem to StackPanel linked to specified property
+            </summary>
+            <param name="p_property"></param>
+        </member>
+        <member name="M:AGV.Filter.SilentFilterClear">
+            <summary>
+            now it is not silent :(
+            </summary>
+        </member>
+        <member name="M:AGV.Filter.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Candies.TextValidationType">
+            <summary>
+            Declares list of possible validation rules for text (used in AGV.Candies.TextBox)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.NoValidation">
+            <summary>
+            Accepts any text
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.Share">
+            <summary>
+            Accepts percents in range [0;100] (% in the end is mandatory)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.Percent">
+            <summary>
+            Accepts percents not limited with range or precision (% in the end is mandatory)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.PercentNonNegative">
+            <summary>
+            Accepts positive percents not limited with top range (% in the end is mandatory)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.Integer">
+            <summary>
+            Positive or negative integers (C# type: long\Int64)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.IntegerNonNegative">
+            <summary>
+            Non negative integers (C# type: long\Int64)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.Float">
+            <summary>
+            Numbers with floating comma (C# type: double)
+            </summary>
+        </member>
+        <member name="F:AGV.Candies.TextValidationType.FloatNonNegative">
+            <summary>
+            Positive numbers with floating comma (C# type: double)
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Distribution">
+            <summary>
+            Interaction logic for Graph_Distribution.xaml
+            </summary>
+            <summary>
+            Graph_Distribution
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Distribution.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.FolderSelectorControl">
+            <summary>
+            Interaction logic for FolderSelectorControl.xaml
+            </summary>
+            <summary>
+            FolderSelectorControl
+            </summary>
+        </member>
+        <member name="M:AGV.FolderSelectorControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_ExceptionHandler">
+            <summary>
+            Interaction logic for wnd_ExceptionHandler.xaml
+            </summary>
+            <summary>
+            wnd_ExceptionHandler
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_ExceptionHandler.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.ProressAnimationUpwardLight">
+            <summary>
+            Interaction logic for ProressAnimationUpwardLight.xaml
+            </summary>
+            <summary>
+            ProressAnimationUpwardLight
+            </summary>
+        </member>
+        <member name="M:AGV.ProressAnimationUpwardLight.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Candies.DGV">
+            <summary>
+            This simple control holds System.Windows.Forms.DataGridView on WindowsFormsHost and can be easily pasted in xaml
+            </summary>
+        </member>
+        <member name="M:AGV.Candies.DGV.#ctor">
+            <summary>
+            This simple control holds System.Windows.Forms.DataGridView on WindowsFormsHost and can be easily pasted in xaml
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_saveView">
+            <summary>
+            Interaction logic for wnd_saveView.xaml
+            </summary>
+            <summary>
+            wnd_saveView
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_saveView.#ctor(AGV.UserViewSettings,AGV.PropertyCollection)">
+            <summary>
+            This constructor loads window to save new view
+            </summary>
+            <param name="p_settings">euGridSettings settings</param>
+            <param name="p_props">Property Collection for the new view</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_saveView.#ctor(AGV.UserViewSettings,AGV.UserView)">
+            <summary>
+            This constructor loads window for renaming views
+            </summary>
+            <param name="p_settings">euGridSettings settings</param>
+            <param name="p_view">view to rename</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_saveView.btn_save_view_MouseDown(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            This event can save new view or rename existing depending on mode.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_saveView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.FunnyBunny">
+            <summary>
+            FunnyBunny should be used by MOZG solution only. Encapsulates excel parsing and data upload to SQL server. Some fields can be converted using dictionary tables on SQL server
+            </summary>
+        </member>
+        <member name="M:AGV.FunnyBunny.#ctor(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            FunnyBunny should be used by MOZG solution only. Encapsulates excel parsing and data upload to SQL server. Some fields can be converted using dictionary tables on SQL server
+            </summary>
+            <param name="_con"></param>
+            <param name="_file_path"></param>
+        </member>
+        <member name="T:AGV.Windows.wnd_DatePicker">
+            <summary>
+            Interaction logic for wnd_DatePicker.xaml
+            </summary>
+            <summary>
+            wnd_DatePicker
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_DatePicker.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Progress">
+            <summary>
+            Use _AddTask() or _AddParallelizedTask() methods to schedule tasks and finally call Execute()
+            </summary>
+            <summary>
+            wnd_Progress
+            </summary>
+        </member>
+        <member name="F:AGV.Windows.wnd_Progress.fl_ClosingIsDisabled">
+            <summary>
+            Window Closing event checks this flag and cancels closing if it is 'true'. Default is 'true'.
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress.#ctor(AGV.Windows.wnd_Progress.AutoCloseMode)">
+            <summary>
+            Creates an instance of window for tasks execution. AutoCloseMode is mandatory
+            </summary>
+            <param name="p_close_mode"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress.Execute(System.Windows.Window)">
+            <summary>
+            Calls ShowDialog and immideately launches process of scheduled tasks execution in according to their waves.
+            </summary>
+            <param name="p_owner"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress.ShowDialog">
+            <summary>
+            Please use Execute() method instead of ShowDialog. This method will throw an exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress.Show">
+            <summary>
+            Please use Execute() method instead of ShowDialog. This method will throw an exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress._Close">
+            <summary>
+            forces window to be closed. Does not perform any terminate actions for scheduled tasks.
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress._AddTask(System.String,AGD.Simple.ObjectDelegate,System.Object,System.Byte)">
+            <summary>
+            Schedules task execution.
+            </summary>
+            <param name="p_description">Task caption</param>
+            <param name="p_del">Function to be executed</param>
+            <param name="p_param"></param>
+            <param name="p_wave">Tasks can be grouped in waves for parallel launch. Next wave will be executed after all tasks on previous wave have finished their execution.</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress._AddTask(System.String,AGV.SimpleDelegate,System.Byte)">
+            <summary>
+            Schedules task execution.
+            </summary>
+            <param name="p_description">Task caption</param>
+            <param name="p_del">Function to be executed</param>
+            <param name="p_wave">Tasks can be grouped in waves for parallel launch. Next wave will be executed after all tasks on previous wave have finished their execution.</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress._AddParallelizedTask(System.String,AGD.Simple.ObjectDelegate,System.Collections.IEnumerable,System.Int32,System.Threading.ThreadPriority,System.Byte)">
+            <summary>
+            Schedules parallelized task execution. This type of task is usefull for big collection processing as it manages additional threads and autosplit of huge collection to some number of chanks.
+            </summary>
+            <param name="p_description">Task caption</param>
+            <param name="p_del">Function to be executed on automatically extracted subset of collection</param>
+            <param name="p_col">Collection to be splitted into chanks and passed to multiple threads, that will execute function passed in p_del</param>
+            <param name="p_threads_per_proc">Number of threads per logical processor</param>
+            <param name="p_ThreadPriority">Thread Priority</param>
+            <param name="p_wave">Tasks can be grouped in waves for parallel launch. Next wave will be executed after all tasks on previous wave have finished their execution.</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Progress.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.wnd_Progress._Closeable">
+            <summary>
+            allows user to close window using standard 'x' button (in top-right corner)
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.wnd_Progress.AutoCloseMode">
+            <summary>
+            Contains list of possible behaviours of window after specific function has finished.
+            </summary>
+        </member>
+        <member name="T:AGV.ProgressAnimationFourSquares">
+            <summary>
+            Interaction logic for ProgressAnimationFourSquares.xaml
+            </summary>
+            <summary>
+            ProgressAnimationFourSquares
+            </summary>
+        </member>
+        <member name="M:AGV.ProgressAnimationFourSquares.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="F:AGV.OptimalStackPanel.gs">
+            <summary>
+            золотое сечение
+            </summary>
+        </member>
+        <member name="T:AGV.Graph.TaskExecutionVisualizer">
+            <summary>
+            Visualize Task Execution
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.dt_min">
+            <summary>
+            Oldest (smallest, minimal) time of elements (based on starttime)
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.dt_max">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.ScaleProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for Scale.   
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.DistanceBetweenVerticalLinesOnAxisProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.DistanceBetweenVerticalGridLinesProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.IndentProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.ElementHeightProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.VerticalDistanceBetweenElementsProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.DisplayElementCaptionsProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.DisplayElementTooltipsProperty">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.lst">
+            <summary>
+            Main and the only one list of elements.
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.LoadElements(System.Collections.Generic.List{AGV.Graph.Element})">
+            <summary>
+            Creates copy of list and elements.
+            </summary>
+            <param name="p_lst_elements"></param>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.SetCanvasSize">
+            <summary>
+            Detect Canvas bounderies Xmin, Ymin, Xmax, Ymax
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            
+            </summary>
+            <param name="dc"></param>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.RenderingMain_ThreadSafe">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.RenderingMain">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawOXAxis">
+            <summary>
+            draws main Ox axis and small markers on it (calculation logic to be added to this summary)
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawGridLines">
+            <summary>
+            draws main Ox axis and small markers on it (calculation logic to be added to this summary)
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.SetUpLayout">
+            <summary>
+            Self clean up. Creates and adds canvases (main and captions). Main canvas holded by scrollviewer.
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.ConvertTimeToPixels(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="p_start"></param>
+            <param name="p_end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.ConvertTimeToPixels(System.TimeSpan)">
+            <summary>
+            
+            </summary>
+            <param name="p_delta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.ConvertTimeToPixels(System.Double)">
+            <summary>
+            Converts time in seconds to pixels
+            </summary>
+            <param name="p_seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.cnv_elements_captions">
+            <summary>
+            Canvas on the left side of this control. Contains respective captions for each element on main canvas.
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.cnv_elements_main">
+            <summary>
+            Main Canvas, contains gridlines, labels, time axis and (of course) elements.
+            </summary>
+        </member>
+        <member name="F:AGV.Graph.TaskExecutionVisualizer.sv_main">
+            <summary>
+            Contains main canvas for elements.
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawGridLabels(System.Windows.Media.DrawingContext)">
+            <summary>
+            Adding Grid Labels
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawElementsCaptions(System.Windows.Media.DrawingContext)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawElements">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.TaskExecutionVisualizer.DrawLine(System.Windows.Controls.Canvas,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.Brush,System.Double)">
+            <summary>
+            Add Line to canvas with the specified coordinates, stroke brush, stroke thickness
+            </summary>
+            <param name="p_canvas"></param>
+            <param name="p_X1"></param>
+            <param name="p_Y1"></param>
+            <param name="p_X2"></param>
+            <param name="p_Y2"></param>
+            <param name="p_brush"></param>
+            <param name="p_thickness"></param>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.Scale">
+            <summary>
+            Ratio of 1 second to 1 pixel. ( For instance: Scale = 1 second / 1 pixel)
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.DistanceBetweenVerticalLinesOnAxisSeconds">
+            <summary>
+            Distance in seconds between axis Grid lines
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.DistanceBetweenVerticalGridLinesSeconds">
+            <summary>
+            Distance in seconds between background Grid lines
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.Indent">
+            <summary>
+            Otstup osnovnoi setki ot kraia (left,top,right,bottom)...
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.ElementHeight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.VerticalDistanceBetweenElements">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.DisplayElementCaptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.TaskExecutionVisualizer.DisplayElementTooltips">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AGV.Graph.Element">
+            <summary>
+            Container for log visualizer data objects
+            </summary>
+        </member>
+        <member name="M:AGV.Graph.Element.#ctor(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="p_caption"></param>
+            <param name="p_start"></param>
+            <param name="p_finish"></param>
+        </member>
+        <member name="M:AGV.Graph.Element.#ctor(System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="p_caption"></param>
+            <param name="p_start"></param>
+        </member>
+        <member name="M:AGV.Graph.Element.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            
+            </summary>
+            <param name="dc"></param>
+        </member>
+        <member name="M:AGV.Graph.Element.Clone">
+            <summary>
+            Makes copy :)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Graph.Element.Copy(AGV.Graph.Element)">
+            <summary>
+            Makes copy :)
+            </summary>
+            <param name="p_source"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AGV.Graph.Element.StartDate">
+            <summary>
+            Objects execution start date
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.Element.EndDate">
+            <summary>
+            Objects execution end date
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.Element.Caption">
+            <summary>
+            Caption :)
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.Element.Failed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.Element.DisplayCaption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AGV.Graph.Element.DisplayTooltip">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AGV.EH.MakeLifeEasier(AGD.HF.EnvironmentType)">
+            <summary>
+            Method makes you life easier
+            </summary>
+            <param name="p_environmentType">Environment type for application (Development/Acceptance/Production)</param>
+        </member>
+        <member name="M:AGV.EH.MakeLifeEasier(AGD.HF.EnvironmentType,AGV.ApplicationCloseMode)">
+            <summary>
+            Method makes you life easier
+            </summary>
+            <param name="p_environmentType">Environment type for application (Development/Acceptance/Production)</param>
+            <param name="p_app_close_mode">Application close mode (after information gathering or after manual shutdown)</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.ShowDialogInternal">
+            <summary>
+            Implements Window.ShowDialog() method
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.GetParameters">
+            <summary>
+            When implemented in derived class should show window and return parameters set by user or null if cancelled
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.RestoreParameters(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            When implemented in derived class should restore parameters show them
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.SetControlValue(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            Asiigns specific value to main ('value-containing') control property
+            </summary>
+            <param name="p_el"></param>
+            <param name="p_value"></param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.GetSimpleVisualTypes">
+            <summary>
+            Returns list of 'simple' visual control types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.GetVisualsCollection(System.Windows.DependencyObject,System.Collections.Generic.List{System.Windows.Media.Visual})">
+            <summary>
+            Adds all found visuals to collection
+            </summary>
+            <param name="p_parent">Parent visual</param>
+            <param name="collection">Collection where found visuals will be added</param>
+        </member>
+        <member name="M:AGV.Windows.wnd_Parameters.GetControlValues">
+            <summary>
+            Get dictionary with values of all named framework elements. Key = element name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AGV.Candies.DG">
+            <summary>
+            This simple control holds System.Windows.Forms.DataGrid on WindowsFormsHost and can be easily pasted in xaml
+            </summary>
+        </member>
+        <member name="M:AGV.Candies.DG.#ctor">
+            <summary>
+            This simple control holds System.Windows.Forms.DataGrid on WindowsFormsHost and can be easily pasted in xaml
+            </summary>
+        </member>
+        <member name="M:AGV._cfg_UI.OverrideGridSettings(System.String,System.String)">
+            <summary>
+            Override setting for grid with override='true'
+            </summary>
+            <param name="p_source"></param>
+            <param name="p_dest"></param>
+        </member>
+        <member name="M:AGV.UserViewSettings.ChangeColumnOrder(AGV.PropertyCollection,AGV.PropertyCollection)">
+            <summary>
+            Delete all columns from euGrid then add columns in order of properties PC.
+            </summary>
+            <param name="choosed_props">Properties that will be added to euGrid in order thay are in that PC</param>
+            <param name="all_props">Properties that will be deleted from euGrid</param>
+        </member>
+        <member name="M:AGV.UserViewSettings.ViewExists(System.String,System.String)">
+            <summary>
+            Checks if view with such a parameters exists.
+            </summary>
+            <param name="p_view_name"></param>
+            <param name="p_access_code"></param>
+            <param name="p_author"></param>
+            <returns>true if view exists, false if not</returns>
+        </member>
+        <member name="M:AGV.UserViewSettings.ViewExists(AGV.UserView)">
+            <summary>
+            Checks if view with such a view exists.
+            </summary>
+            <returns>true if view exists, false if not</returns>
+        </member>
+        <member name="M:AGV.UserViewSettings.RenameView(AGV.UserView,System.String)">
+            <summary>
+            Update view name in db (t_us_Fav_View)
+            </summary>
+            <param name="p_view">view to change</param>
+            <param name="p_new_name">new name</param>
+        </member>
+        <member name="M:AGV.UserViewSettings.SetDefaultView(AGV.UserView)">
+            <summary>
+            Perform actions in (t_us_User_Fav_View_Default) table to change the default view
+            </summary>
+            <param name="p_view"></param>
+        </member>
+        <member name="M:AGV.UserViewSettings.SetDefaultView(System.Int32)">
+            <summary>
+            Perform actions in (t_us_User_Fav_View_Default) table to change the default view
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.SaveView(AGV.UserView,AGV.PropertyCollection)">
+            <summary>
+            Delete old view. Save new view according to defined Property Collection(PC).
+            Column Order will be used from PC. First in PC - first column to display.
+            </summary>
+            <param name="p_view">view to change</param>
+            <param name="p_props">new column settings</param>
+        </member>
+        <member name="M:AGV.UserViewSettings.SaveNewView(AGV.PropertyCollection,System.String,AGV.UserViewType)">
+            <summary>
+            Save new view with columns according to defined Property Collection(PC).
+            Column Order will be used from PC. First in PC - first column to display.
+            </summary>
+            <param name="props">PC for new view</param>
+            <param name="p_name">new view name</param>
+            <param name="p_view_type">new view type</param>
+        </member>
+        <member name="M:AGV.UserViewSettings.SaveNewView(AGV.UserView)">
+            <summary>
+            Save new view.
+            Column Order will be used from PC. First in PC - first column to display.
+            </summary>
+            <param name="p_view">new view</param>
+        </member>
+        <member name="M:AGV.UserViewSettings._SaveNewView(AGV.UserView)">
+            <summary>
+            Actually performs saving new view to db.
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.DeleteView(AGV.UserView)">
+            <summary>
+            Delete view 
+            </summary>
+            <param name="p_view">view to delete</param>
+        </member>
+        <member name="M:AGV.UserViewSettings._DeleteView(AGV.UserView)">
+            <summary>
+            Actually performs deleting
+            </summary>
+            <param name="p_view"></param>
+        </member>
+        <member name="M:AGV.UserViewSettings.GetHelpItemComment(System.String)">
+            <summary>
+            Gets comment for help item by the column caption
+            </summary>
+            <param name="p_column_caption">column caption</param>
+            <returns>comment</returns>
+        </member>
+        <member name="M:AGV.UserViewSettings.GetHelpSubItemComment(System.String)">
+            <summary>
+            Gets comment for help subitem by the column caption
+            </summary>
+            <param name="p_column_caption">column caption</param>
+            <returns>comment</returns>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadDefaultView">
+            <summary>
+            Loads default view. Used to show proper columns at euGrid start up
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadFieldTopics">
+            <summary>
+            Loads Field Topics. Creates default field topic called "all". 
+            Fills field topic dictionary d_field_topics[topic_name : Property Collection]
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadObjectId">
+            <summary>
+            Tries to load object id from db. 
+            If there is no one, inserts new object id into db.
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadFavouriteViews">
+            <summary>
+            Loads all favourite views for euGrid for object id. Requires object id. 
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadFavouriteColumns(AGV.UserView)">
+            <summary>
+            Loads columns from db for a view. Stores them in view.Fields property
+            </summary>
+            <param name="p_view"></param>
+        </member>
+        <member name="M:AGV.UserViewSettings.LoadAllFieldProperties">
+            <summary>
+            Uses Entities to load all field properties.
+            </summary>
+        </member>
+        <member name="M:AGV.UserViewSettings.InsertNewColumnCaptionsInDB">
+            <summary>
+            Update t_us_column table with new column captions
+            </summary>
+        </member>
+        <member name="P:AGV.UserViewSettings.FullPropertyCollection">
+            <summary>
+            
+            </summary>
+            <returns>All properties from Entities</returns>
+        </member>
+        <member name="P:AGV.UserView.HasPermissionToChange">
+            <summary>
+            Checks if current user has permission to change view in parameters.
+            </summary>
+            <param name="p_view"></param>
+            <returns>true - has permission
+            false - doesn't have permission</returns>
+        </member>
+        <member name="T:AGV.ExcDetails.StackTraceInfo">
+            <summary>
+            Class represent StackTrace string as parsed on single logic blocks (file, function, line, etc.) structure
+            </summary>
+        </member>
+        <member name="M:AGV.ExcDetails.StackTraceInfo.#ctor(System.Diagnostics.StackFrame)">
+            <summary>
+            Creates StackTraceInfo by extract StackFrame usefull data from StackFrame in param
+            </summary>
+            <param name="p_sf"></param>
+        </member>
+        <member name="M:AGV.ExcDetails.StackTraceInfo.GetStackTraceInfoList(System.Exception)">
+            <summary>
+            Method gets List of StackTraceInfo by extract stacktrace and stackframe data from exception in param
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AGV.Windows.wnd_ThreadsMarshal">
+            <summary>
+            Interaction logic for ThreadsMarshal.xaml
+            </summary>
+            <summary>
+            wnd_ThreadsMarshal
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_ThreadsMarshal.CloseTM">
+            <summary>
+            Closes window
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.wnd_ThreadsMarshal.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:AGV.Windows.wnd_ThreadsMarshal.ThreadForTerminating">
+            <summary>
+            this is write only properoty. Thread will be terminated on window close
+            </summary>
+        </member>
+        <member name="T:AGV.FilterItem">
+            <summary>
+            Interaction logic for FilterItem.xaml
+            </summary>
+            <summary>
+            FilterItem
+            </summary>
+        </member>
+        <member name="M:AGV.FilterItem.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Windows.AdvancedFilterField">
+            <summary>
+            Interaction logic for AdvancedFilterField.xaml
+            </summary>
+            <summary>
+            AdvancedFilterField
+            </summary>
+        </member>
+        <member name="M:AGV.Windows.AdvancedFilterField.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AGV.Graph_Squares">
+            <summary>
+            Interaction logic for Graph_Squares.xaml
+            </summary>
+            <summary>
+            Graph_Squares
+            </summary>
+        </member>
+        <member name="M:AGV.Graph_Squares.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AGV.Candies.TabItem.PlaceUserControl(System.Windows.Controls.UserControl)">
+            <summary>
+            Add UserControl On TabItem
+            </summary>
+            <param name="s">User Control To Add</param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
